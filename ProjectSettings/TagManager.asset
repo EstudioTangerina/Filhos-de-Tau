@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Objects
+  - Chest
+  - Canvas
+  - ChestContainer
+  - Itens
+  - ColTag
+  - ArrowTarget
+  - Arrow
+  - FirstItens
+  - Cols
+  - AddArrow
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - PathfindingHidden
+  - ArrowTarget
+  - Obstacles
+  - PlayerRoll
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Objects
+    uniqueID: 2815440739
+    locked: 0
+  - name: GroundTop
+    uniqueID: 1285354317
+    locked: 0
+  - name: UI
+    uniqueID: 1641847719
+    locked: 0

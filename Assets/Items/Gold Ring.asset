@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be290b736fe6c5f408db9720a01bf1eb, type: 3}
+  m_Name: Gold Ring
+  m_EditorClassIdentifier: 
+  name: Gold Ring
+  icon: {fileID: 21300000, guid: 322b11fc6ae40ef489c9d78b4ece0a85, type: 3}
+  isDefaultItem: 0
+  description: Gold Ring Description
+  equipSlot: 4
+  armorModifier: 3
+  damageModifier: 0

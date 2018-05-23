@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739ea941e8f7b114e932ed87833e2f75, type: 3}
+  m_Name: PokeBall
+  m_EditorClassIdentifier: 
+  name: PokeBall
+  icon: {fileID: 21300000, guid: e1863266f5ca75b46971f072f1746af4, type: 3}
+  isDefaultItem: 0
+  description: PokeBall Description

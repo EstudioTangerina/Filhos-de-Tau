@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be290b736fe6c5f408db9720a01bf1eb, type: 3}
+  m_Name: Iron Ring
+  m_EditorClassIdentifier: 
+  name: Iron Ring
+  icon: {fileID: 21300000, guid: a262323659849804697b55d019b32812, type: 3}
+  isDefaultItem: 0
+  description: Iron Ring Description
+  equipSlot: 4
+  armorModifier: 4
+  damageModifier: 0
