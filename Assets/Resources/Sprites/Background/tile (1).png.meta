@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0112a41fd07a38241b979cab6981a6b5
-timeCreated: 1526852990
+timeCreated: 1527181117
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -39,6 +39,9 @@ TextureImporter:
     21300064: tile (1)_32
     21300066: tile (1)_0
     21300068: tile (1)_1
+    21300070: tile (1)_35
+    21300072: tile (1)_36
+    21300074: tile (1)_37
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -585,7 +588,7 @@ TextureImporter:
         width: 25
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -596,6 +599,48 @@ TextureImporter:
         serializedVersion: 2
         x: 182
         y: 169
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tile (1)_35
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 143
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tile (1)_36
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 143
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tile (1)_37
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 143
         width: 25
         height: 25
       alignment: 0

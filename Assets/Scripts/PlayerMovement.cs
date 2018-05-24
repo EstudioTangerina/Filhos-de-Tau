@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode pursuitButton;
     public KeyCode runButton;
 
+    public GameObject[] doubt;
+
     public float objectiveDist;
     #endregion
 
@@ -103,11 +105,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 velPos;
     private Transform objective;
     private bool walkToObjective;
+
+    private bool onStart;
+    private float startTimer;
     #endregion
 
-    public bool onStart;
-    public float startTimer;
-    public GameObject[] doubt;
     #region Main Functions
     // Use this for initialization
     void Start()
@@ -400,7 +402,7 @@ public class PlayerMovement : MonoBehaviour
             anim.speed = moveModifier;
             anim.SetFloat("x", x);
             anim.SetFloat("y", y);
-
+            anim.SetBool("isWalking", true);
         }
 
         else

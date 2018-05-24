@@ -39,7 +39,7 @@ public class Arrow : MonoBehaviour {
             }
         }
 
-        if (collision.gameObject.tag == "Untagged")
+        if (collision.gameObject.tag == "Untagged" || collision.gameObject.name == "Tilemap_Col")
             Destroy(gameObject);
     }
 }

@@ -56,6 +56,7 @@ public class TutorialManager : MonoBehaviour {
     public bool lastCanOpenInv;
 
     public GameObject fade;
+    public GameObject water;
     // Use this for initialization
     void Start () {
         dManager = GetComponent<DialogueManager>();
@@ -72,6 +73,7 @@ public class TutorialManager : MonoBehaviour {
         player.GetComponent<ItemHUD>().canChangeWeapon = canChangeWeapon;
         inventoryUI.canOpenInv = canOpenInv;
         fade.SetActive(true);
+        water.SetActive(false);
     }
 
     private void Update()
@@ -111,14 +113,16 @@ public class TutorialManager : MonoBehaviour {
 
         if (startBossFight)
         {
-            if (player.GetComponent<PlayerMovement>().objectiveDist < 10)
+            float r = Vector2.Distance(player.transform.position, bossArenaMiddle.position);
+
+            if (r < 10)
             {
                 normalCol.SetActive(false);
                 wallCol.GetComponent<CompositeCollider2D>().isTrigger = true;
                 topGround.GetComponent<TilemapRenderer>().sortingLayerName = "Objects";
                 topGround.GetComponent<TilemapRenderer>().sortingOrder = -100;
             }
-                if (player.GetComponent<PlayerMovement>().objectiveDist == 0)
+                if (r == 0)
             {
                 canWalk = lastCanWalk;
                 canRun = lastCanRun;
@@ -130,6 +134,8 @@ public class TutorialManager : MonoBehaviour {
                 canOpenInv = lastCanChangeWeapon;
                 hud.SetActive(true);
                 bossArenaCol.SetActive(true);
+                water.SetActive(true);
+                water.GetComponent<WaterMove>().FollowObjective(bossArenaMiddle);
             }
 
         }
@@ -158,7 +164,7 @@ public class TutorialManager : MonoBehaviour {
         lastCanChangeWeapon = canChangeWeapon;
         lastCanOpenInv = canOpenInv;
 
-    player.GetComponent<PlayerMovement>().FollowObjective(bossArenaMiddle);
+        player.GetComponent<PlayerMovement>().FollowObjective(bossArenaMiddle);
         startBossFightCol.SetActive(false);
         startBossFight = true;
         canWalk = false;

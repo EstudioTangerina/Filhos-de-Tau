@@ -11,6 +11,8 @@ public class Area3 : MonoBehaviour {
     public Transform extraArrowsPoint;
     public bool control;
     public Transform[] points = new Transform[3];
+    private float waitTimer;
+    private bool startTimer;
     // Use this for initialization
     void Start () {
         guide = FindObjectOfType<GuideAi>();
@@ -28,7 +30,23 @@ public class Area3 : MonoBehaviour {
         }
         else
         {
-            if(player.ammo <= 0 && !tutorial.partCompleted[3] && !control)
+            if(player.ammo <= 0 && !tutorial.partCompleted[3] && !control && GameObject.FindGameObjectsWithTag("Arrow").Length == 0)
+            {
+
+                tutorial.StartTutorialDialogue(12);
+                tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1f;
+                startTimer = true;
+                waitTimer = 0;
+                control = true;
+                //guide.gameObject.GetComponent<Animator>().SetBool("Launch", true);
+            }
+        }
+
+        if (startTimer)
+        {
+            waitTimer += Time.deltaTime;
+
+            if(waitTimer > 2)
             {
                 GameObject extraArrow = (GameObject)Instantiate(extraArrows, GameObject.FindObjectOfType<GuideAi>().transform.position, guide.gameObject.transform.rotation);
                 extraArrow.GetComponent<AddArrow>().isTutorial = true;
@@ -36,8 +54,7 @@ public class Area3 : MonoBehaviour {
                 extraArrow.GetComponent<AddArrow>().point1 = points[1];
                 extraArrow.GetComponent<AddArrow>().point2 = points[2];
                 extraArrow.GetComponent<AddArrow>().path = extraArrowsPoint.transform;
-                control = true;
-                //guide.gameObject.GetComponent<Animator>().SetBool("Launch", true);
+                startTimer = false;
             }
         }
     }

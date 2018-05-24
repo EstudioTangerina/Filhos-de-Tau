@@ -16,6 +16,8 @@ TagManager:
   - FirstItens
   - Cols
   - AddArrow
+  - Water
+  - Wall
   layers:
   - Default
   - TransparentFX
