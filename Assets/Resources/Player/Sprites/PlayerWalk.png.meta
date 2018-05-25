@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 61a77d602329f684d969f388bbb0c112
-timeCreated: 1526482496
-licenseType: Pro
+timeCreated: 1527256915
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: PlayerWalkNew_0
@@ -28,6 +28,35 @@ TextureImporter:
     21300042: PlayerWalkNew_22
     21300044: PlayerWalkNew_23
     21300046: PlayerWalkNew_24
+    21300048: PlayerWalk_0
+    21300050: PlayerWalk_1
+    21300052: PlayerWalk_2
+    21300054: PlayerWalk_3
+    21300056: PlayerWalk_4
+    21300058: PlayerWalk_5
+    21300060: PlayerWalk_6
+    21300062: PlayerWalk_7
+    21300064: PlayerWalk_8
+    21300066: PlayerWalk_9
+    21300068: PlayerWalk_10
+    21300070: PlayerWalk_11
+    21300072: PlayerWalk_12
+    21300074: PlayerWalk_13
+    21300076: PlayerWalk_14
+    21300078: PlayerWalk_15
+    21300080: PlayerWalk_16
+    21300082: PlayerWalk_17
+    21300084: PlayerWalk_18
+    21300086: PlayerWalk_19
+    21300088: PlayerWalk_20
+    21300090: PlayerWalk_21
+    21300092: PlayerWalk_22
+    21300094: PlayerWalk_23
+    21300096: PlayerWalk_24
+    21300098: PlayerWalk_25
+    21300100: PlayerWalk_26
+    21300102: PlayerWalk_27
+    21300104: PlayerWalk_28
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -134,80 +163,80 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerWalkNew_0
+      name: PlayerWalk_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 100
         width: 14
         height: 24
-      alignment: 9
-      pivot: {x: 0.61900485, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_1
+      name: PlayerWalk_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 31
         y: 100
         width: 15
         height: 24
-      alignment: 9
-      pivot: {x: 0.58330333, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_2
+      name: PlayerWalk_2
       rect:
         serializedVersion: 2
-        x: 70
+        x: 65
         y: 98
         width: 13
         height: 27
-      alignment: 9
-      pivot: {x: 0.5961192, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_3
+      name: PlayerWalk_3
       rect:
         serializedVersion: 2
-        x: 101
+        x: 96
         y: 98
         width: 14
         height: 27
-      alignment: 9
-      pivot: {x: 0.57933646, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_4
+      name: PlayerWalk_4
       rect:
         serializedVersion: 2
-        x: 134
+        x: 129
         y: 98
         width: 13
         height: 27
-      alignment: 9
-      pivot: {x: 0.5533987, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_5
+      name: PlayerWalk_5
       rect:
         serializedVersion: 2
-        x: 166
+        x: 161
         y: 99
         width: 13
         height: 26
@@ -218,83 +247,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_6
+      name: PlayerWalk_6
       rect:
         serializedVersion: 2
-        x: 8
-        y: 65
+        x: 184
+        y: 101
         width: 14
-        height: 27
-      alignment: 9
-      pivot: {x: 0.2816709, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerWalkNew_7
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 68
-        width: 13
         height: 24
-      alignment: 9
-      pivot: {x: 0.34786108, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerWalkNew_8
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 69
-        width: 12
-        height: 24
-      alignment: 9
-      pivot: {x: 0.39511618, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerWalkNew_9
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 68
-        width: 11
-        height: 25
-      alignment: 9
-      pivot: {x: 0.43461818, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerWalkNew_10
-      rect:
-        serializedVersion: 2
-        x: 136
-        y: 67
-        width: 12
-        height: 26
-      alignment: 9
-      pivot: {x: 0.4400673, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PlayerWalkNew_11
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 64
-        width: 12
-        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,10 +261,136 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_12
+      name: PlayerWalk_7
       rect:
         serializedVersion: 2
-        x: 7
+        x: 207
+        y: 101
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 65
+        width: 14
+        height: 27
+      alignment: 9
+      pivot: {x: 0.51, y: 0.5786548}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_9
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 67
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_10
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 69
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_11
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 68
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_12
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 67
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_13
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 64
+        width: 12
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5, y: 0.58787644}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_14
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 68
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_15
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 67
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PlayerWalk_16
+      rect:
+        serializedVersion: 2
+        x: 2
         y: 32
         width: 17
         height: 27
@@ -316,10 +401,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_13
+      name: PlayerWalk_17
       rect:
         serializedVersion: 2
-        x: 39
+        x: 34
         y: 32
         width: 16
         height: 27
@@ -330,10 +415,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_14
+      name: PlayerWalk_18
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 32
         width: 17
         height: 28
@@ -344,10 +429,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_15
+      name: PlayerWalk_19
       rect:
         serializedVersion: 2
-        x: 98
+        x: 93
         y: 36
         width: 22
         height: 24
@@ -358,10 +443,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_16
+      name: PlayerWalk_20
       rect:
         serializedVersion: 2
-        x: 132
+        x: 127
         y: 35
         width: 21
         height: 25
@@ -372,10 +457,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_17
+      name: PlayerWalk_21
       rect:
         serializedVersion: 2
-        x: 166
+        x: 161
         y: 35
         width: 20
         height: 25
@@ -386,10 +471,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_18
+      name: PlayerWalk_22
       rect:
         serializedVersion: 2
-        x: 6
+        x: 1
         y: 0
         width: 13
         height: 28
@@ -400,10 +485,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_19
+      name: PlayerWalk_23
       rect:
         serializedVersion: 2
-        x: 40
+        x: 35
         y: 0
         width: 11
         height: 27
@@ -414,10 +499,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_20
+      name: PlayerWalk_24
       rect:
         serializedVersion: 2
-        x: 68
+        x: 63
         y: 0
         width: 17
         height: 28
@@ -428,10 +513,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_22
+      name: PlayerWalk_26
       rect:
         serializedVersion: 2
-        x: 98
+        x: 93
         y: 4
         width: 22
         height: 24
@@ -442,10 +527,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_23
+      name: PlayerWalk_27
       rect:
         serializedVersion: 2
-        x: 129
+        x: 124
         y: 3
         width: 21
         height: 25
@@ -456,12 +541,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerWalkNew_24
+      name: PlayerWalk_28
       rect:
         serializedVersion: 2
-        x: 160
+        x: 154
         y: 3
-        width: 21
+        width: 22
         height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

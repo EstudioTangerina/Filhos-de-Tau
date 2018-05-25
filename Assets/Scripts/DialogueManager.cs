@@ -18,8 +18,12 @@ public class DialogueManager : MonoBehaviour {
     public float waitTime;
     public bool area4Dialogue;
     public bool area4DialogueFinished;
+    public bool bossDialogue;
+    public bool bossDialogueFinished;
+    private TutorialManager tutorial;
 	// Use this for initialization
 	void Start () {
+        tutorial = GetComponent<TutorialManager>();
         tutorialBox.SetActive(false);
 	}
 	
@@ -47,7 +51,8 @@ public class DialogueManager : MonoBehaviour {
     public void StartDialogue(Dialogue dialogue)
     {
         nameText.text = dialogue.name;
-        GetComponent<TutorialManager>().canWalk = false;
+        //GetComponent<TutorialManager>().canWalk = false;
+        //GetComponent<TutorialManager>().canAttack = false;
         playerHud.SetActive(false);
         GameObject.FindObjectOfType<GuideAi>().startMove = false;
         sentences.Clear();
@@ -85,9 +90,27 @@ public class DialogueManager : MonoBehaviour {
 
     void EndDialogue()
     {
+        if (!bossDialogue)
+        {
+            GetComponent<TutorialManager>().canWalk = true;
+            //tutorial.canWalk = tutorial.lastCanWalk;
+            tutorial.canRun = tutorial.lastCanRun;
+            tutorial.canAttack = tutorial.lastCanAttack;
+            tutorial.canRoll = tutorial.lastCanRoll;
+            tutorial.canUseMagic = tutorial.lastCanUseMagic;
+            tutorial.canPursuit = tutorial.lastCanPursuit;
+            tutorial.canChangeWeapon = tutorial.lastCanChangeWeapon;
+            tutorial.canOpenInv = tutorial.lastCanChangeWeapon;
+            playerHud.SetActive(true);
+        }
+
+        else
+        {
+            bossDialogueFinished = true;
+            bossDialogue = false;
+        }
+
         textBox.SetActive(false);
-        GetComponent<TutorialManager>().canWalk = true;
-        playerHud.SetActive(true);
         GameObject.FindObjectOfType<GuideAi>().startMove = true;
     }
 
@@ -139,7 +162,11 @@ public class DialogueManager : MonoBehaviour {
     void EndDialogueTutorial()
     {
         if (area4Dialogue)
+        {
             area4DialogueFinished = true;
+            area4Dialogue = false;
+        }
+
         tutorialBox.SetActive(false);
     }
 }

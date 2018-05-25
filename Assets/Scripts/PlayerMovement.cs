@@ -35,12 +35,13 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] doubt;
 
     public float objectiveDist;
+
+    public bool isWalking;
     #endregion
 
     #region Private Variables
     private Animator anim;
     private float vel;
-    private bool isWalking;
     private float x;
     private float y;
     private bool run;
@@ -343,12 +344,15 @@ public class PlayerMovement : MonoBehaviour
             if (roll)
                 isWalking = true;
 
-            else if(!roll && !mouseLook)
+            else if(!roll && !mouseLook && canWalk)
                 isWalking = (Mathf.Abs(x) + Mathf.Abs(y)) > 0;
         }
 
         if (pickingUp == false)
             anim.SetBool("isWalking", isWalking);
+
+        if (!canWalk && !walkToObjective)
+            isWalking = false;
 
         anim.SetBool("Roll", roll);
         die = anim.GetBool("Died");
@@ -454,7 +458,6 @@ public class PlayerMovement : MonoBehaviour
         {
             move = false;
             objectiveDist = Vector2.Distance(transform.position, objective.position);
-
             if (objectiveDist > 0)
             {
                 transform.position = Vector2.MoveTowards(transform.position, objective.position, vel * Time.deltaTime);
@@ -496,7 +499,10 @@ public class PlayerMovement : MonoBehaviour
             }
 
             else
+            {
+                isWalking = false;
                 walkToObjective = false;
+            }
         }
     }
 
@@ -721,6 +727,12 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("PickUp", false);
         pickingUp = false;
         StopCoroutine("PickUPWait");
+    }
+
+    public void LookTo(float xL, float yL)
+    {
+        anim.SetFloat("x", xL);
+        anim.SetFloat("y", yL);
     }
     #endregion
 }

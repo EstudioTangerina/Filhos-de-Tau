@@ -77,7 +77,6 @@ public class GuideAi : MonoBehaviour {
         if (start)
         {
             float r = Vector2.Distance(transform.position, startPoint.position);
-
             if (r > 0)
             {
                 transform.position = Vector2.MoveTowards(transform.position, startPoint.position, vel * 0.5f * Time.deltaTime);
@@ -140,10 +139,14 @@ public class GuideAi : MonoBehaviour {
             if(point0.position != area1_1WayP[0].position)
                 stoppedArea++;
 
+            anim.speed = 1;
+
             anim.SetBool("isWalking", false);
             index = 0;
         }
     }
+
+
 
     public void ChangeWaypoints(int x)
     {

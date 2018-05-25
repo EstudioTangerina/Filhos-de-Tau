@@ -5,6 +5,7 @@ using UnityEngine;
 public class WaterMove : MonoBehaviour {
     private Transform objective;
     private bool walkToObjective;
+    public float vel;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +19,7 @@ public class WaterMove : MonoBehaviour {
 
             if (objectiveDist > 0)
             {
-                transform.position = Vector2.MoveTowards(transform.position, objective.position, 4 * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, objective.position, vel * Time.deltaTime);
             }
 
             else

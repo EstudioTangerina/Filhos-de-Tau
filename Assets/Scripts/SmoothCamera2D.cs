@@ -14,8 +14,15 @@ public class SmoothCamera2D : MonoBehaviour
     private Tilemap bgTilemap;
     private bool freezeX, freezeY;
 
+    private Transform camTransform;
+    private float shakeDuration = 0f;
+    private float shakeAmount = 0.7f;
+    private float decreaseFactor = 1.0f;
+    Vector3 originalPos;
     private void Start()
     {
+        originalPos = transform.position;
+        camTransform = this.transform;
         target = GameObject.FindGameObjectWithTag("Player").transform;
         transform.position = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
     }
@@ -28,7 +35,7 @@ public class SmoothCamera2D : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (target)
+        if (target && shakeDuration <= 0)
         {
             Vector3 pos;
 
@@ -57,6 +64,20 @@ public class SmoothCamera2D : MonoBehaviour
             Vector3 destination = transform.position + delta;
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
         }
+
+        if (shakeDuration > 0)
+        {
+            camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+
+            shakeDuration -= Time.deltaTime * decreaseFactor;
+        }
+    }
+
+    public void ShakeCamera(float duration, float sAmount)
+    {
+        originalPos = transform.position;
+        shakeDuration = duration;
+        shakeAmount = sAmount;
     }
 
     public void IsInsideMap()

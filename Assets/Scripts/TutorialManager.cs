@@ -57,6 +57,8 @@ public class TutorialManager : MonoBehaviour {
 
     public GameObject fade;
     public GameObject water;
+    public GameObject cam;
+    private bool control;
     // Use this for initialization
     void Start () {
         dManager = GetComponent<DialogueManager>();
@@ -74,6 +76,15 @@ public class TutorialManager : MonoBehaviour {
         inventoryUI.canOpenInv = canOpenInv;
         fade.SetActive(true);
         water.SetActive(false);
+
+        lastCanWalk = canWalk;
+        lastCanRun = canRun;
+        lastCanAttack = canAttack;
+        lastCanRoll = canRoll;
+        lastCanUseMagic = canUseMagic;
+        lastCanPursuit = canUseMagic;
+        lastCanChangeWeapon = canChangeWeapon;
+        lastCanOpenInv = canOpenInv;
     }
 
     private void Update()
@@ -122,20 +133,51 @@ public class TutorialManager : MonoBehaviour {
                 topGround.GetComponent<TilemapRenderer>().sortingLayerName = "Objects";
                 topGround.GetComponent<TilemapRenderer>().sortingOrder = -100;
             }
-                if (r == 0)
+                if (r == 0 && !bossArenaCol.activeSelf)
             {
-                canWalk = lastCanWalk;
-                canRun = lastCanRun;
-                canAttack = lastCanAttack;
-                canRoll = lastCanRoll;
-                canUseMagic = lastCanUseMagic;
-                canPursuit = lastCanPursuit;
-                canChangeWeapon = lastCanChangeWeapon;
-                canOpenInv = lastCanChangeWeapon;
-                hud.SetActive(true);
+                StartDialogue(1);
                 bossArenaCol.SetActive(true);
+            }
+
+            if (player.GetComponent<PlayerMovement>().objectiveDist == 0 && !control)
+            {
+                player.GetComponent<PlayerMovement>().LookTo(0, 1);
+                control = true;
+            }
+
+        }
+
+        if(dManager.bossDialogueFinished)
+        {
+            float d = Vector2.Distance(water.transform.position, bossArenaMiddle.position);
+
+            if(!water.activeSelf)
+            {
+                cam.GetComponent<SmoothCamera2D>().ShakeCamera(6, 0.1f);
                 water.SetActive(true);
                 water.GetComponent<WaterMove>().FollowObjective(bossArenaMiddle);
+            }
+
+            if(d == 0)
+            {
+                if (cam.gameObject.GetComponent<Camera>().orthographicSize < 7)
+                {
+                    cam.gameObject.GetComponent<Camera>().orthographicSize += 0.1f;
+                }
+
+                if (!hud.activeSelf && cam.gameObject.GetComponent<Camera>().orthographicSize >= 7)
+                {
+                    canWalk = lastCanWalk;
+                    canRun = lastCanRun;
+                    canAttack = lastCanAttack;
+                    canRoll = lastCanRoll;
+                    canUseMagic = lastCanUseMagic;
+                    canPursuit = lastCanPursuit;
+                    canChangeWeapon = lastCanChangeWeapon;
+                    canOpenInv = lastCanChangeWeapon;
+                    hud.SetActive(true);
+                    dManager.bossDialogueFinished = false;
+                }
             }
 
         }
@@ -201,6 +243,18 @@ public class TutorialManager : MonoBehaviour {
 
     public void StartDialogue(int i)
     {
+        canWalk = false;
+        canRun = false;
+        canAttack = false;
+        canRoll = false;
+        canUseMagic = false;
+        canPursuit = false;
+        hud.SetActive(false);
+        canChangeWeapon = false;
+
+        if (i == 1)
+            dManager.bossDialogue = true;
+
         dManager.StartDialogue(dialogues[i]);
     }
 

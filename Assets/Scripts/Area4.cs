@@ -17,6 +17,7 @@ public class Area4 : MonoBehaviour {
     public bool zoomIn;
     public bool zoomOut;
     public bool zoomOutMid;
+    public GameObject guide;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -41,7 +42,9 @@ public class Area4 : MonoBehaviour {
 
         if (tutorial.GetComponent<DialogueManager>().area4DialogueFinished)
         {
-            GameObject.FindObjectOfType<GuideAi>().ChangeWaypoints(5);
+            guide.GetComponent<GuideAi>().ChangeWaypoints(5);
+            guide.GetComponent<GuideAi>().vel *= 1.5f;
+            guide.GetComponent<Animator>().speed = 1.3f;
             tutorial.GetComponent<DialogueManager>().area4DialogueFinished = false;
         }
 
@@ -151,6 +154,7 @@ public class Area4 : MonoBehaviour {
             tutorial.canUseMagic = false;
             tutorial.canChangeWeapon = false;
             tutorial.canOpenInv = false;
+            player.GetComponent<PlayerMovement>().isWalking = false;
 
             startWave = true;
         }
