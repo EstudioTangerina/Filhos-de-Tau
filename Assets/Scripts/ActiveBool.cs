@@ -9,7 +9,7 @@ public class ActiveBool : MonoBehaviour {
     public bool change;
 	// Use this for initialization
 	void Start () {
-		
+        tutorial = FindObjectOfType<TutorialManager>();
 	}
 	
 	// Update is called once per frame

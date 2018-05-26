@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canUseMagic;
     [HideInInspector]
     public bool canPursuit;
-
+    public bool onStart;
     public int ammo;
     public int maxAmmo = 10;
     public GameObject colGO;
@@ -107,7 +107,6 @@ public class PlayerMovement : MonoBehaviour
     private Transform objective;
     private bool walkToObjective;
 
-    private bool onStart;
     private float startTimer;
     #endregion
 
@@ -115,7 +114,6 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        onStart = true;
         objectiveDist = 10;
         velocity = new Vector2(1.75f, 1.1f);
         rb2D = gameObject.GetComponent<Rigidbody2D>();
