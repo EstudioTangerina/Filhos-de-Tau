@@ -13,6 +13,8 @@ public class Area3 : MonoBehaviour {
     public Transform[] points = new Transform[3];
     private float waitTimer;
     private bool startTimer;
+    public GameObject[] itens = new GameObject[2];
+    public AreaReached area3;
     // Use this for initialization
     void Start () {
         guide = FindObjectOfType<GuideAi>();
@@ -21,6 +23,16 @@ public class Area3 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(guide.stoppedArea == 3 && area3.reached)
+        {
+            tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 2f;
+            tutorial.StartTutorialDialogue(5);
+            itens[0].GetComponent<Collider2D>().enabled = true;
+            itens[1].GetComponent<Collider2D>().enabled = true;
+            area3.reached = false;
+        }
+
+
 		if(targets[0].hit && targets[1].hit && targets[2].hit && targets[3].hit && targets[4].hit && targets[5].hit && !tutorial.partCompleted[3])
         {
             guide.ChangeWaypoints(0);

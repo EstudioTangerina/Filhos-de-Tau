@@ -136,7 +136,7 @@ public class GuideAi : MonoBehaviour {
         if(index == positions.Length && startMove)
         {
             startMove = false;
-            if(point0.position != area1_1WayP[0].position)
+            if(point0.position != area1_1WayP[0].position && point0.position != area2_1WayP[0].position)
                 stoppedArea++;
 
             anim.speed = 1;

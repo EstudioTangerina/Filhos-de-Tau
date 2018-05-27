@@ -10,6 +10,9 @@ public class Area1 : MonoBehaviour {
     public GameObject startAxe;
     public Transform starteAxePoint;
     private bool launchAxe;
+    private float timer;
+    private bool startTimer;
+    public AreaReached area1;
 	// Use this for initialization
 	void Start () {
         guide = FindObjectOfType<GuideAi>();
@@ -17,16 +20,30 @@ public class Area1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(guide.stoppedArea == 1 && !launchAxe)
+        if(guide.stoppedArea == 1 && !launchAxe && !startTimer && area1.reached)
         {
-            GameObject FdTAxe = (GameObject)Instantiate(startAxe, GameObject.FindObjectOfType<GuideAi>().transform.position, guide.gameObject.transform.rotation);
-            FdTAxe.transform.eulerAngles = new Vector3(0, 0, 69.34f);
-            FdTAxe.GetComponent<LaunchItem>().point0 = points[0];
-            FdTAxe.GetComponent<LaunchItem>().point1 = points[1];
-            FdTAxe.GetComponent<LaunchItem>().point2 = points[2];
-            FdTAxe.GetComponent<LaunchItem>().path = starteAxePoint.transform;
+            tutorial.StartTutorialDialogue(0);
+            tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1.5f;
+            startTimer = true;
+            area1.reached = false;
+        }
 
-            launchAxe = true;
+        if(startTimer)
+        {
+            timer += Time.deltaTime;
+
+            if(timer > 4)
+            {
+                GameObject FdTAxe = (GameObject)Instantiate(startAxe, GameObject.FindObjectOfType<GuideAi>().transform.position, guide.gameObject.transform.rotation);
+                FdTAxe.transform.eulerAngles = new Vector3(0, 0, 69.34f);
+                FdTAxe.GetComponent<LaunchItem>().point0 = points[0];
+                FdTAxe.GetComponent<LaunchItem>().point1 = points[1];
+                FdTAxe.GetComponent<LaunchItem>().point2 = points[2];
+                FdTAxe.GetComponent<LaunchItem>().path = starteAxePoint.transform;
+                timer = 0;
+                startTimer = false;
+                launchAxe = true;
+            }
         }
 
         if (firstRagdoll.attack && !tutorial.partCompleted[1])

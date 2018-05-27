@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4622075933444104}
   - component: {fileID: 212428539984312018}
-  - component: {fileID: 58572771533968834}
   - component: {fileID: 114840876066016316}
   - component: {fileID: 114231974077553012}
   - component: {fileID: 120875121338385222}
   - component: {fileID: 114368617171930490}
+  - component: {fileID: 58803843450192302}
   m_Layer: 0
   m_Name: FdT Axe
   m_TagString: FirstItens
@@ -66,7 +66,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4622075933444104
 Transform:
   m_ObjectHideFlags: 1
@@ -74,14 +74,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216339380448126}
   m_LocalRotation: {x: 0, y: 0, z: 0.56884897, w: 0.822442}
-  m_LocalPosition: {x: -39.335, y: 21.99, z: 0}
+  m_LocalPosition: {x: -36.935, y: 22.099, z: 0}
   m_LocalScale: {x: 0.5766338, y: 0.5766338, z: 0}
   m_Children:
   - {fileID: 224671785854698116}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 69.34}
---- !u!58 &58572771533968834
+--- !u!58 &58803843450192302
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,9 +93,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.51, y: 0.17}
   serializedVersion: 2
-  m_Radius: 0.5199999
+  m_Radius: 0.7
 --- !u!114 &114087006406842870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216339380448126}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46902c346aef1744d8b38290bb6f114b, type: 3}
   m_Name: 

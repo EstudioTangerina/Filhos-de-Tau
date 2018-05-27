@@ -18,6 +18,7 @@ public class Area4 : MonoBehaviour {
     public bool zoomOut;
     public bool zoomOutMid;
     public GameObject guide;
+    public AreaReached area4;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -25,6 +26,14 @@ public class Area4 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(guide.GetComponent<GuideAi>().stoppedArea == 4 && area4.reached)
+        {
+            tutorial.StartTutorialDialogue(7);
+            tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1f;
+            tutorial.canRoll = true;
+            area4.reached = false;
+        }
+
        if(logsRolled == 1 && !one)
         {
             tutorial.StartTutorialDialogue(8);

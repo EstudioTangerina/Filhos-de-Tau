@@ -30,12 +30,20 @@ public class AxeRock : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "FirstItens")
+        {
             collided = true;
+            collision.gameObject.GetComponent<ItemName>().enabled = true;
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+           // GetComponent<ReOrderLayer>().offset = 0f;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "FirstItens")
+        {
             collided = false;
+         //   GetComponent<ReOrderLayer>().offset = -0.5f;
+        }
     }
 }
