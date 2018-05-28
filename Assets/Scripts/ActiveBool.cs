@@ -7,6 +7,7 @@ public class ActiveBool : MonoBehaviour {
     public bool canAttack;
     public bool changeWeapon;
     public bool change;
+    public AnimatorOverrideController controller;
 	// Use this for initialization
 	void Start () {
         tutorial = FindObjectOfType<TutorialManager>();
@@ -16,6 +17,7 @@ public class ActiveBool : MonoBehaviour {
 	public void Change () {
             tutorial.canAttack = canAttack;
             tutorial.canChangeWeapon = changeWeapon;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().runtimeAnimatorController = controller;
             Destroy(gameObject);
     }
 }

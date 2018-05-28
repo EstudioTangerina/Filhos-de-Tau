@@ -306,6 +306,7 @@ MonoBehaviour:
   canAttack: 1
   changeWeapon: 0
   change: 0
+  controller: {fileID: 22100000, guid: bb51c4784cd31cd4fb653a95bf4dcc0c, type: 2}
 --- !u!120 &120875121338385222
 LineRenderer:
   m_ObjectHideFlags: 1
