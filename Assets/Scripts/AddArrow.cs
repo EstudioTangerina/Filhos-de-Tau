@@ -62,6 +62,8 @@ public class AddArrow : MonoBehaviour {
         else
         {
             GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+            transform.GetChild(0).gameObject.SetActive(true);
+            GetComponent<Collider2D>().enabled = true;
             transform.rotation = new Quaternion(0, 0, 0, 0);
         }
     }

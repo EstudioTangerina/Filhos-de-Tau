@@ -68,8 +68,16 @@ public class GuideAi : MonoBehaviour {
         anim.SetFloat("y", y);
         DrawQuadraticCurve();
 
+
+        if (stoppedArea >= 5)
+        {
+            GetComponent<Animator>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = true;
+            startMove = false;
+        }
+
         if (startMove)
-            move();
+            Move();
 
         else
             SetFacingToPath(player.transform.position);
@@ -154,6 +162,7 @@ public class GuideAi : MonoBehaviour {
         point1 = pointsAreas[x, 1];
         point2 = pointsAreas[x, 2];
         startMove = true;
+        index = 0;
         DrawQuadraticCurve();
     }
 
@@ -190,7 +199,7 @@ public class GuideAi : MonoBehaviour {
         }
     }
 
-    private void move()
+    private void Move()
     {
         if (index < positions.Length)
         {

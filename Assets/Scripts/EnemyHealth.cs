@@ -30,7 +30,8 @@ public class EnemyHealth : MonoBehaviour {
     void Start () {
         curHealth = maxHealth;
 
-        healthBarCanvas.SetActive(false);
+        if (healthBarCanvas != null)
+            healthBarCanvas.SetActive(false);
 
         maxDistInv = 5;
     }
@@ -38,8 +39,12 @@ public class EnemyHealth : MonoBehaviour {
     private void FixedUpdate()
     {
         calcHealth = curHealth / maxHealth;
-        healthBar.transform.localScale = new Vector3(calcHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
-        healthBarCanvas.GetComponent<Canvas>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
+
+        if (healthBarCanvas != null)
+        {
+            healthBar.transform.localScale = new Vector3(calcHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            healthBarCanvas.GetComponent<Canvas>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
+        }
     }
 
     // Update is called once per frame
@@ -65,11 +70,17 @@ public class EnemyHealth : MonoBehaviour {
         {
             if (!isDoll)
             {
-                GetComponent<Animator>().SetBool("Died", true);
-                Destroy(gameObject, 1);
-            }
+                if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGOList.Contains(this.gameObject))
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGOList.Remove(this.gameObject);
 
-            healthBarCanvas.SetActive(false);
+                rhythm.gameObject.SetActive(false);
+                GetComponent<Animator>().SetBool("Died", true);
+                //GetComponent<Collider2D>().enabled = false;
+                Destroy(gameObject, hurtAnim.length + 0.2f);
+            }
+            if (healthBarCanvas != null)
+                healthBarCanvas.SetActive(false);
+
             curHealth = 0;
         }
         /*
@@ -96,16 +107,18 @@ public class EnemyHealth : MonoBehaviour {
     {
         if (!isDoll)
         {
-            if (GetComponent<Animator>().GetBool("isFurious") == false)
+            if (rhythm.gameObject.activeSelf)
             {
                 curHealth -= dano * rhythm.GetComponent<RhythmBar>().intensity;
                 rhythm.GetComponent<RhythmBar>().freeze = true;
-                if (Random.Range(1, 6) != 2 && attacked == false)
-                {
-                    attacked = true;
-                    GetComponent<Animator>().SetBool("Hurt", true);
-                }
+                GetComponent<EnemyAI>().timer = 0;
             }
+
+            else
+                curHealth -= dano;
+
+            attacked = true;
+            GetComponent<Animator>().SetBool("Hurt", true);
         }
 
         else
@@ -113,5 +126,9 @@ public class EnemyHealth : MonoBehaviour {
             curHealth -= dano;
             GetComponent<RagDool>().attack = true;
         }
+    }
+    public void Knockback(float x, float y)
+    {
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(-x * 1000, -y * 1000), ForceMode2D.Force);
     }
 }

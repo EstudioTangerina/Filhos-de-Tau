@@ -6,7 +6,7 @@ public class HitCollider : MonoBehaviour {
     public bool colliding;
 	// Use this for initialization
 	void Start () {
-        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -14,11 +14,26 @@ public class HitCollider : MonoBehaviour {
 		
 	}
 
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy" && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGOList.Contains(col.gameObject))
+        {
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGO == null)
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGO = col.gameObject;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGOList.Add(col.gameObject);
+            colliding = true;
+        }
+    }
+
     public void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy" && colliding == false)
+        if (col.gameObject.tag == "Enemy" && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGOList.Contains(col.gameObject))
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGO = col.gameObject;
+            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGO == null)
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGO = col.gameObject;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().colGOList.Add(col.gameObject);
             colliding = true;
         }
     }

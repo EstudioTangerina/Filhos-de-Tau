@@ -71,7 +71,7 @@ public class Area4 : MonoBehaviour {
             timer2 += Time.deltaTime;
 
         #region Zoom out to face arena
-        if (timer2 > 2.5f && timer2 < 2.6f)
+        if (timer2 > 0.5f && timer2 < 0.6f)
         {
             cam.target = mid.transform;
             zoomOutMid = true;
@@ -87,9 +87,9 @@ public class Area4 : MonoBehaviour {
         #endregion
 
         #region Zoom in to face rhythm bar
-        if (timer2 > 8.5 && timer2 < 8.6f)
+        if (timer2 > 4.5 && timer2 < 4.6f)
         {
-            cam.target = enemies[0].transform;
+            cam.target = mid;
             zoomIn = true;
         }
 
@@ -103,7 +103,7 @@ public class Area4 : MonoBehaviour {
         #endregion
 
         #region Zoom out to face player
-        if (timer2 > 21 && timer2 < 21.1f)
+        if (timer2 > 17 && timer2 < 17.1f)
         {
             cam.target = player;
             zoomOut = true;

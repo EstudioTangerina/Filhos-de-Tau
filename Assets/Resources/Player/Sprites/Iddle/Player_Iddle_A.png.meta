@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ef5cf959dabde11499759d0334c3fe93
-timeCreated: 1527526997
+timeCreated: 1527608427
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -109,12 +109,12 @@ TextureImporter:
       name: Player_Iddle_A_0
       rect:
         serializedVersion: 2
-        x: 107
-        y: 2050
-        width: 204
-        height: 371
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 110
+        y: 2051
+        width: 200
+        height: 370
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -123,12 +123,12 @@ TextureImporter:
       name: Player_Iddle_A_1
       rect:
         serializedVersion: 2
-        x: 609
-        y: 2046
-        width: 202
-        height: 365
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 610
+        y: 2050
+        width: 200
+        height: 361
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,10 +139,10 @@ TextureImporter:
         serializedVersion: 2
         x: 1110
         y: 2050
-        width: 201
+        width: 200
         height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,12 +151,12 @@ TextureImporter:
       name: Player_Iddle_A_3
       rect:
         serializedVersion: 2
-        x: 1606
+        x: 1610
         y: 2050
-        width: 204
+        width: 200
         height: 361
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,8 +169,8 @@ TextureImporter:
         y: 1549
         width: 222
         height: 372
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,8 +183,8 @@ TextureImporter:
         y: 1549
         width: 211
         height: 361
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,8 +197,8 @@ TextureImporter:
         y: 1549
         width: 211
         height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: Player_Iddle_A_7
       rect:
         serializedVersion: 2
-        x: 1606
+        x: 1610
         y: 1549
-        width: 215
+        width: 211
         height: 361
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.48, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -221,12 +221,12 @@ TextureImporter:
       name: Player_Iddle_A_8
       rect:
         serializedVersion: 2
-        x: 146
+        x: 151
         y: 1049
-        width: 245
+        width: 240
         height: 372
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,8 +239,8 @@ TextureImporter:
         y: 1049
         width: 245
         height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,12 +249,12 @@ TextureImporter:
       name: Player_Iddle_A_10
       rect:
         serializedVersion: 2
-        x: 1147
-        y: 1049
-        width: 245
-        height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1149
+        y: 1050
+        width: 243
+        height: 351
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,11 +264,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1649
-        y: 1049
+        y: 1050
         width: 242
-        height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 361
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -279,10 +279,10 @@ TextureImporter:
         serializedVersion: 2
         x: 170
         y: 549
-        width: 221
+        width: 219
         height: 371
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: Player_Iddle_A_13
       rect:
         serializedVersion: 2
-        x: 669
+        x: 670
         y: 549
-        width: 225
+        width: 220
         height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -305,12 +305,12 @@ TextureImporter:
       name: Player_Iddle_A_14
       rect:
         serializedVersion: 2
-        x: 1167
+        x: 1170
         y: 549
-        width: 223
+        width: 220
         height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,12 +319,12 @@ TextureImporter:
       name: Player_Iddle_A_15
       rect:
         serializedVersion: 2
-        x: 1669
+        x: 1670
         y: 549
-        width: 226
+        width: 220
         height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

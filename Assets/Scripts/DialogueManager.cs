@@ -20,6 +20,10 @@ public class DialogueManager : MonoBehaviour {
     public bool area4DialogueFinished;
     public bool bossDialogue;
     public bool bossDialogueFinished;
+    public int index;
+    public GameObject[] faces;
+    public string[] facesNames;
+    public bool speak, smile;
     private TutorialManager tutorial;
 	// Use this for initialization
 	void Start () {
@@ -29,6 +33,15 @@ public class DialogueManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        foreach (GameObject go in faces)
+        {
+            if (go.activeSelf)
+            {
+                go.GetComponent<Animator>().SetBool("Smile", smile);
+                go.GetComponent<Animator>().SetBool("Speak", speak);
+            }
+        }
+
         if (finishWrite)
         {
             startTimer = true;
@@ -51,12 +64,13 @@ public class DialogueManager : MonoBehaviour {
     public void StartDialogue(Dialogue dialogue)
     {
         nameText.text = dialogue.name;
+
         //GetComponent<TutorialManager>().canWalk = false;
         //GetComponent<TutorialManager>().canAttack = false;
         playerHud.SetActive(false);
         GameObject.FindObjectOfType<GuideAi>().startMove = false;
         sentences.Clear();
-
+        speak = true;
         foreach(string sentence in dialogue.senteces)
         {
             sentences.Enqueue(sentence);
@@ -67,11 +81,38 @@ public class DialogueManager : MonoBehaviour {
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        speak = true;
+
+        if (index == 0 || index == 2)
+            nameText.text = "???";
+
+        else if (index == 1 || index == 4 || index == 7)
+            nameText.text = "Menina";
+
+        else
+            nameText.text = "Negro D'Água";
+
+        for(int i = 0; i < facesNames.Length; i++)
+        {
+            if (facesNames[i] == nameText.text)
+            {
+                faces[i].SetActive(true);
+            }
+
+            else
+                faces[i].SetActive(false);
+        }
+
+        if (sentences.Count == 0)
         {
             EndDialogue();
+
+            foreach (GameObject go in faces)
+                go.SetActive(false);
+
             return;
         }
+        index++;
         textBox.SetActive(true);
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
@@ -84,6 +125,10 @@ public class DialogueManager : MonoBehaviour {
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+
+            if (dialogueText.text == sentence)
+                speak = false;
+
             yield return null;
         }
     }
@@ -109,7 +154,6 @@ public class DialogueManager : MonoBehaviour {
             bossDialogueFinished = true;
             bossDialogue = false;
         }
-
         textBox.SetActive(false);
         GameObject.FindObjectOfType<GuideAi>().startMove = true;
     }

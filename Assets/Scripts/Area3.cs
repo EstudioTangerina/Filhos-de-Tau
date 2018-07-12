@@ -58,16 +58,22 @@ public class Area3 : MonoBehaviour {
         {
             waitTimer += Time.deltaTime;
 
-            if(waitTimer > 2)
+            if(waitTimer > 1.8f && waitTimer < 1.9f)
+                GameObject.FindGameObjectWithTag("NegroD'agua").GetComponent<Animator>().SetBool("Throw", true);
+
+            if (waitTimer > 2)
             {
-                GameObject extraArrow = (GameObject)Instantiate(extraArrows, GameObject.FindObjectOfType<GuideAi>().transform.position, guide.gameObject.transform.rotation);
+                GameObject extraArrow = (GameObject)Instantiate(extraArrows, points[0].transform.position, guide.gameObject.transform.rotation);
                 extraArrow.GetComponent<AddArrow>().isTutorial = true;
                 extraArrow.GetComponent<AddArrow>().point0 = points[0];
                 extraArrow.GetComponent<AddArrow>().point1 = points[1];
                 extraArrow.GetComponent<AddArrow>().point2 = points[2];
                 extraArrow.GetComponent<AddArrow>().path = extraArrowsPoint.transform;
+                GameObject.FindGameObjectWithTag("NegroD'agua").GetComponent<Animator>().SetBool("Throw", false);
                 startTimer = false;
             }
+
+            
         }
     }
     

@@ -27,7 +27,7 @@ public class EnergyBar : MonoBehaviour {
     private void FixedUpdate()
     {
         calcEnergy = curEnergy / maxEnergy;
-        energyBar.GetComponent<Image>().fillAmount = 1 - calcEnergy;
+        energyBar.GetComponent<Image>().fillAmount = calcEnergy;
     }
 
     // Update is called once per frame

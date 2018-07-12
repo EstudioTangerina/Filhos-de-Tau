@@ -1,25 +1,44 @@
 fileFormatVersion: 2
-guid: a6331656814d5da48890310f9ada5b25
-timeCreated: 1527527330
+guid: 341905b99b7767643922ecb61be88962
+timeCreated: 1527682903
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Player_Iddle_AB_0
-    21300002: Player_Iddle_AB_1
-    21300004: Player_Iddle_AB_2
-    21300006: Player_Iddle_AB_3
-    21300008: Player_Iddle_AB_4
-    21300010: Player_Iddle_AB_5
-    21300012: Player_Iddle_AB_6
-    21300014: Player_Iddle_AB_7
-    21300016: Player_Iddle_AB_8
-    21300018: Player_Iddle_AB_9
-    21300020: Player_Iddle_AB_10
-    21300022: Player_Iddle_AB_11
-    21300024: Player_Iddle_AB_12
-    21300026: Player_Iddle_AB_13
-    21300028: Player_Iddle_AB_14
-    21300030: Player_Iddle_AB_15
+    21300000: Player_Iddle_AB - Copia_0
+    21300002: Player_Iddle_AB - Copia_1
+    21300004: Player_Iddle_AB - Copia_2
+    21300006: Player_Iddle_AB - Copia_3
+    21300008: Player_Iddle_AB - Copia_4
+    21300010: Player_Iddle_AB - Copia_5
+    21300012: Player_Iddle_AB - Copia_6
+    21300014: Player_Iddle_AB - Copia_7
+    21300016: Player_Iddle_AB - Copia_8
+    21300018: Player_Iddle_AB - Copia_9
+    21300020: Player_Iddle_AB - Copia_10
+    21300022: Player_Iddle_AB - Copia_11
+    21300024: Player_Iddle_AB - Copia_12
+    21300026: Player_Iddle_AB - Copia_13
+    21300028: Player_Iddle_AB - Copia_14
+    21300030: Player_Iddle_AB - Copia_15
+    21300032: Player_Iddle_AB - Copia_16
+    21300034: Player_Iddle_AB - Copia_17
+    21300036: Player_Iddle_AB - Copia_18
+    21300038: Player_IddleDown_AB(OtherIsBugging)_0
+    21300040: Player_IddleDown_AB(OtherIsBugging)_1
+    21300042: Player_IddleDown_AB(OtherIsBugging)_2
+    21300044: Player_IddleDown_AB(OtherIsBugging)_3
+    21300046: Player_IddleDown_AB(OtherIsBugging)_4
+    21300048: Player_IddleDown_AB(OtherIsBugging)_5
+    21300050: Player_IddleDown_AB(OtherIsBugging)_6
+    21300052: Player_IddleDown_AB(OtherIsBugging)_7
+    21300054: Player_IddleDown_AB(OtherIsBugging)_8
+    21300056: Player_IddleDown_AB(OtherIsBugging)_9
+    21300058: Player_IddleDown_AB(OtherIsBugging)_10
+    21300060: Player_IddleDown_AB(OtherIsBugging)_11
+    21300062: Player_IddleDown_AB(OtherIsBugging)_12
+    21300064: Player_IddleDown_AB(OtherIsBugging)_13
+    21300066: Player_IddleDown_AB(OtherIsBugging)_14
+    21300068: Player_IddleDown_AB(OtherIsBugging)_15
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -106,225 +125,225 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Iddle_AB_0
+      name: Player_IddleDown_AB(OtherIsBugging)_0
       rect:
         serializedVersion: 2
-        x: 107
+        x: 110
         y: 2050
-        width: 204
+        width: 200
         height: 371
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_1
+      name: Player_IddleDown_AB(OtherIsBugging)_1
       rect:
         serializedVersion: 2
-        x: 609
-        y: 2046
-        width: 202
-        height: 365
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 610
+        y: 2050
+        width: 200
+        height: 361
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_2
+      name: Player_IddleDown_AB(OtherIsBugging)_2
       rect:
         serializedVersion: 2
         x: 1110
         y: 2050
-        width: 201
+        width: 200
         height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_3
+      name: Player_IddleDown_AB(OtherIsBugging)_3
       rect:
         serializedVersion: 2
-        x: 1606
+        x: 1610
         y: 2050
-        width: 204
+        width: 200
         height: 361
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_4
+      name: Player_IddleDown_AB(OtherIsBugging)_4
       rect:
         serializedVersion: 2
-        x: 109
+        x: 110
         y: 1549
-        width: 222
+        width: 220
         height: 372
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.46, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_5
+      name: Player_IddleDown_AB(OtherIsBugging)_5
       rect:
         serializedVersion: 2
-        x: 609
+        x: 610
         y: 1549
-        width: 211
+        width: 210
         height: 361
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.49, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_6
+      name: Player_IddleDown_AB(OtherIsBugging)_6
       rect:
         serializedVersion: 2
         x: 1110
         y: 1549
-        width: 211
+        width: 210
         height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.485, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_7
+      name: Player_IddleDown_AB(OtherIsBugging)_7
       rect:
         serializedVersion: 2
-        x: 1606
+        x: 1610
         y: 1549
-        width: 215
+        width: 210
         height: 361
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.49, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_8
+      name: Player_IddleDown_AB(OtherIsBugging)_8
       rect:
         serializedVersion: 2
-        x: 146
+        x: 150
         y: 1049
-        width: 245
-        height: 372
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 240
+        height: 371
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_9
+      name: Player_IddleDown_AB(OtherIsBugging)_9
       rect:
         serializedVersion: 2
         x: 649
         y: 1049
-        width: 245
-        height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 241
+        height: 361
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_10
+      name: Player_IddleDown_AB(OtherIsBugging)_10
       rect:
         serializedVersion: 2
-        x: 1147
+        x: 1150
         y: 1049
-        width: 245
-        height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 241
+        height: 351
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_11
+      name: Player_IddleDown_AB(OtherIsBugging)_11
       rect:
         serializedVersion: 2
         x: 1649
         y: 1049
         width: 242
-        height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 361
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_12
+      name: Player_IddleDown_AB(OtherIsBugging)_12
       rect:
         serializedVersion: 2
         x: 170
         y: 549
-        width: 221
+        width: 220
         height: 371
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_13
+      name: Player_IddleDown_AB(OtherIsBugging)_13
       rect:
         serializedVersion: 2
-        x: 669
+        x: 670
         y: 549
-        width: 225
+        width: 220
         height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_14
+      name: Player_IddleDown_AB(OtherIsBugging)_14
       rect:
         serializedVersion: 2
-        x: 1167
+        x: 1170
         y: 549
-        width: 223
+        width: 219
         height: 352
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Player_Iddle_AB_15
+      name: Player_IddleDown_AB(OtherIsBugging)_15
       rect:
         serializedVersion: 2
-        x: 1669
+        x: 1670
         y: 549
-        width: 226
-        height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 220
+        height: 361
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

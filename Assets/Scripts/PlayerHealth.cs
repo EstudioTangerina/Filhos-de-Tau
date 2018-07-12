@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
     public float curHealth;
     public float maxHealth;
 
@@ -14,7 +15,7 @@ public class PlayerHealth : MonoBehaviour {
     private GameObject healthBarCanvas;
 
     private float calcHealth;
-
+    private float hurtTimer;
     // Use this for initialization
     void Start()
     {
@@ -28,20 +29,42 @@ public class PlayerHealth : MonoBehaviour {
         healthBar.GetComponent<Image>().fillAmount = calcHealth;
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         if (curHealth < 0)
             curHealth = 0;
+
+        if (curHealth > maxHealth)
+            curHealth = maxHealth;
 
         if (curHealth == 0)
         {
             GetComponent<Animator>().SetBool("Died", true);
             healthBarCanvas.SetActive(false);
         }
-	}
+
+        if (GetComponent<Animator>().GetBool("Hurt"))
+        {
+            hurtTimer += Time.deltaTime;
+
+            if (hurtTimer > 0.2f)
+            {
+                GetComponent<Animator>().SetBool("Hurt", false);
+                hurtTimer = 0;
+            }
+        }
+    }
 
     public void TakeDamage(int dano)
     {
         curHealth -= dano;
+    }
+
+    public void Hurt(float x, float y)
+    {
+        GetComponent<Animator>().SetBool("Hurt", true);
+        GetComponent<Animator>().SetFloat("x", x);
+        GetComponent<Animator>().SetFloat("y", y);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuManager : MonoBehaviour {
     private GameManager manager;
@@ -11,7 +12,10 @@ public class MenuManager : MonoBehaviour {
     private AudioMixer audioMixer;
 
     [SerializeField]
-    private Dropdown resolutionsDropDown;
+    private AudioMixer musicMixer;
+
+    [SerializeField]
+    private TMP_Dropdown resolutionsDropDown;
 
     private Resolution[] resolutions;
 
@@ -20,10 +24,16 @@ public class MenuManager : MonoBehaviour {
 
     private int iter = 0;
 
+    public Image volumeState;
+    public Image MusicState;
+
+    public Sprite[] volState = new Sprite[4];
+    public Sprite[] musState = new Sprite[4];
+
     public List<KeyCode> buttons = new List<KeyCode>();
     public List<KeyCode> defaultButtons = new List<KeyCode>();
     public Button[] keyButtons;
-    public Text[] keyButtonsText;
+    public TextMeshProUGUI[] keyButtonsText;
 
     public bool changeActive;
     public int i;
@@ -31,8 +41,40 @@ public class MenuManager : MonoBehaviour {
     public float timer;
 
     public Button loadButton;
+
+    public Slider volume;
+    public Slider musicVol;
+
+    public GameObject settingsMenu;
+
+    public Button back, reset;
     // Use this for initialization
+    private void Awake()
+    {
+        settingsMenu.SetActive(false);
+    }
+
     void Start () {
+
+        float vol;
+        bool result = audioMixer.GetFloat("volume", out vol);
+
+        if (result)
+            volume.value = vol;
+
+        else
+            volume.value = volume.maxValue;
+
+
+        float mus;
+        bool res = musicMixer.GetFloat("MusicVolume", out mus);
+
+        if (result)
+            musicVol.value = mus;
+
+        else
+            musicVol.value = musicVol.maxValue;
+
         buttonWarning.SetActive(false);
 
         if (Screen.fullScreen)
@@ -74,7 +116,32 @@ public class MenuManager : MonoBehaviour {
             manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
 
         loadButton.interactable = manager.haveSave;
-        
+
+        if (volume.value > -10)
+            volumeState.sprite = volState[3];
+
+        else if (volume.value > -50 && volume.value < -10)
+            volumeState.sprite = volState[2];
+
+        else if (volume.value > -80 && volume.value <= -50)
+            volumeState.sprite = volState[1];
+
+        else
+            volumeState.sprite = volState[0];
+
+        if (musicVol.value > -10)
+            MusicState.sprite = musState[3];
+
+        else if (musicVol.value > -50 && musicVol.value < -10)
+            MusicState.sprite = musState[2];
+
+        else if (musicVol.value > -80 && musicVol.value <= -50)
+            MusicState.sprite = musState[1];
+
+        else
+            MusicState.sprite = musState[0];
+
+
         #region Change Controller
         if (changeActive)
         {
@@ -87,12 +154,17 @@ public class MenuManager : MonoBehaviour {
                 {
                     if (Input.GetKeyUp(key))
                     {
-                        if (buttons.Contains(key) == false || buttons[i] == key)
+                        if (buttons.Contains(key) == false && key != KeyCode.Escape || buttons[i] == key && key != KeyCode.Escape)
                         {
                             buttons[i] = key;
+                            keyButtonsText[i].fontSize = 40;
                             keyButtonsText[i].text = key.ToString();
+
                             foreach (Button b in keyButtons)
                                 b.interactable = true;
+
+                            back.interactable = true;
+                            reset.interactable = true;
                             changeActive = false;
                             timer = 0;
                             GetComponent<SaveConfigs>().SetNewControls();
@@ -140,9 +212,14 @@ public class MenuManager : MonoBehaviour {
         Application.Quit();
     }
 
-    public void SetVolume(float volume)
+    public void SetVolume(float v)
     {
-        audioMixer.SetFloat("volume", volume);
+        audioMixer.SetFloat("volume", v);
+    }
+
+    public void SetMusicVolume(float v)
+    {
+       musicMixer.SetFloat("MusicVolume", v);
     }
 
     public void SetQuality (int qualityIndex)
@@ -172,8 +249,11 @@ public class MenuManager : MonoBehaviour {
                 foreach (Button b in keyButtons)
                     b.interactable = false;
 
+                back.interactable = false;
+                reset.interactable = false;
                 i = buttonIndex;
-                keyButtonsText[i].text = "Press any button";
+                keyButtonsText[i].fontSize = 25;
+                keyButtonsText[i].text = "Aperte algum botão";
                 changeActive = true;
             }
         }

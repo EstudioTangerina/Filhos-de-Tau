@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public MenuManager menu;
 
     public bool haveSave;
-    // Use this for initialization
+    // Use this for initialization0
     void Start()
     {
         menu = GameObject.FindObjectOfType<MenuManager>();
@@ -65,12 +65,18 @@ public class GameManager : MonoBehaviour
         if (menu != null)
             buttons = menu.buttons;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Menu")
         {
-            SaveState(false);
-            player = null;
-            haveSave = true;
-            SceneManager.LoadScene("Menu");
+            if (FindObjectOfType<TutorialManager>().pausePanel.activeSelf == false && Time.timeScale > 0)
+            {
+                Pause();
+                GameObject.Find("ButtonConfirm").GetComponent<AudioSource>().Play();
+            }
+            else if(FindObjectOfType<TutorialManager>().pausePanel.activeSelf == true)
+            {
+                Resume();
+                GameObject.Find("ButtonBack").GetComponent<AudioSource>().Play();
+            }
         }
         /*
         if (Input.GetKeyDown(KeyCode.R) && player != null)
@@ -78,14 +84,42 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }*/
     }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        FindObjectOfType<TutorialManager>().pausePanel.SetActive(true);
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        FindObjectOfType<TutorialManager>().pausePanel.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1;
+        SaveState(false);
+        player = null;
+        haveSave = true;
+        SceneManager.LoadScene("Menu");
+    }
+
     public void SaveState(bool start)
     {
         save = new SaveGame();
         if (start == true) // Reset variables
         {
             player.GetComponent<PlayerMovement>().ammo = 0;
-            player.transform.position = new Vector3(-49.8f, 30.5f, 0);
-            GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(-49.8f, 30.5f, -10);
+            player.transform.position = new Vector3(-49.34f, 30.5f, 0);
+            GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(-49.34f, 31.14f, -10);
             player.GetComponent<PlayerHealth>().curHealth = player.GetComponent<PlayerHealth>().maxHealth;
             player.GetComponent<EnergyBar>().curEnergy = player.GetComponent<EnergyBar>().maxEnergy;
         }

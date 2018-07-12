@@ -6,6 +6,7 @@ public class Arrow : MonoBehaviour {
     public float arrowVel;
     public int dmg;
     private bool controle;
+    private float timer;
 	// Use this for initialization
 	void Start () {
         controle = true;
@@ -13,6 +14,10 @@ public class Arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        timer += Time.deltaTime;
+        if (timer > 0.1f)
+            GetComponent<ReOrderLayer>().enabled = true;
+
         transform.Translate(arrowVel * Time.deltaTime, 0, 0);
 
         Destroy(this.gameObject, 1);

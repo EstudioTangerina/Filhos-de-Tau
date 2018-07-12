@@ -22,10 +22,14 @@ public class ItemHUD : MonoBehaviour {
 
     private PlayerMovement plMove;
 
-    private int curWeapon;
+    public int curWeapon;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    private RuntimeAnimatorController[] animStates;
+
+    private bool controle;
+    // Use this for initialization
+    void Start () {
         plMove = GetComponent<PlayerMovement>();
 	}
 
@@ -35,10 +39,12 @@ public class ItemHUD : MonoBehaviour {
         {
             plMove.activeWeapon = itemImg[curWeapon].name;
 
-            for(int i = 0; i < curItem.Length; i++)
+            for (int i = 0; i < curItem.Length; i++)
             {
-                if(curWeapon == i)
+                if (curWeapon == i)
+                {
                     curItem[i].SetActive(true);
+                }
 
                 else
                     curItem[i].SetActive(false);
@@ -54,13 +60,19 @@ public class ItemHUD : MonoBehaviour {
         {
             itemBox.SetActive(true);
 
-            if (canChangeWeapon)
+            if (canChangeWeapon && Time.timeScale > 0)
             {
                 if (Input.GetAxis("Mouse ScrollWheel") > 0 && curWeapon < curItem.Length - 1 || Input.GetKeyDown(KeyCode.Alpha2) && curWeapon < curItem.Length - 1)
+                {
                     curWeapon += 1;
+                    GetComponent<Animator>().runtimeAnimatorController = animStates[curWeapon];
+                }
 
                 else if (Input.GetAxis("Mouse ScrollWheel") < 0 && curWeapon > 0 || Input.GetKeyDown(KeyCode.Alpha1) && curWeapon > 0)
+                {
                     curWeapon -= 1;
+                    GetComponent<Animator>().runtimeAnimatorController = animStates[curWeapon];
+                }
             }
         }
 

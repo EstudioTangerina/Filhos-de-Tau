@@ -17,6 +17,9 @@ public class BossArenaCol : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
             tutorial.StartBossFight();
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 }

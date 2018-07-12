@@ -9,6 +9,8 @@ public class ArrowTarget : MonoBehaviour {
     public Sprite wasHitL;
     public Sprite wasHitR;
     public GameObject target;
+    public GameObject shaddow;
+    public Sprite shaddowHit;
 	// Use this for initialization
 	void Start () {
 		
@@ -27,14 +29,22 @@ public class ArrowTarget : MonoBehaviour {
             hit = true;
 
             if (collision.gameObject.transform.rotation.eulerAngles.z >= 0 && collision.gameObject.transform.rotation.eulerAngles.z < 45)
+            {
                 target.GetComponent<SpriteRenderer>().sprite = wasHitL;
+                shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
+            }
 
             else if (collision.gameObject.transform.rotation.eulerAngles.z > 135 && collision.gameObject.transform.rotation.eulerAngles.z <= 179)
+            {
                 target.GetComponent<SpriteRenderer>().sprite = wasHitR;
+                shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
+            }
 
             else
+            {
                 target.GetComponent<SpriteRenderer>().sprite = wasHit;
-
+                shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
+            }
             Destroy(collision.gameObject);
         }
     }

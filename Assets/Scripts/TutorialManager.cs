@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.Tilemaps;
 
 public class TutorialManager : MonoBehaviour {
     private GameObject player;
     private InventoryUI inventoryUI;
-
+    public AudioMixer audioMixer;
+    public AudioMixer musicMixer;
+    public Slider volume;
+    public Slider volumeMusic;
+    public Image volumeState;
+    public Image MusicState;
+    public Sprite[] volState = new Sprite[4];
+    public Sprite[] musState = new Sprite[4];
     [Header("Tutorial Lock Variable Controllers")]
     public bool canWalk;
     public bool canRun;
@@ -26,6 +35,7 @@ public class TutorialManager : MonoBehaviour {
     public GameObject normalCol;
     public GameObject wallCol;
     public GameObject topGround;
+    public GameObject ramp, rampTop;
     public GameObject hud;
 
     public int levelPart;
@@ -59,12 +69,34 @@ public class TutorialManager : MonoBehaviour {
     public GameObject water;
     public GameObject cam;
     private bool control;
+    private GameManager manager;
+    public GameObject pausePanel;
+    public GameObject winPanel;
+
+    public GameObject playerShaddow;
     // Use this for initialization
     void Start () {
         dManager = GetComponent<DialogueManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryUI = GameObject.FindObjectOfType<InventoryUI>();
         //StartDialogue(0);
+        float vol;
+        bool result = audioMixer.GetFloat("volume", out vol);
+
+        if (result)
+            volume.value = vol;
+
+        else
+            volume.value = volume.maxValue;
+
+        float musVol;
+        bool res = musicMixer.GetFloat("MusicVolume", out musVol);
+
+        if (res)
+            volumeMusic.value = musVol;
+
+        else
+            volumeMusic.value = volumeMusic.maxValue;
 
         player.GetComponent<PlayerMovement>().canWalk = canWalk;
         player.GetComponent<PlayerMovement>().canRun = canRun;
@@ -85,11 +117,40 @@ public class TutorialManager : MonoBehaviour {
         lastCanPursuit = canUseMagic;
         lastCanChangeWeapon = canChangeWeapon;
         lastCanOpenInv = canOpenInv;
+
+        manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
     }
 
     private void Update()
     {
-        if(partCompleted[levelPart] == false)
+        if (manager == null)
+            manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
+
+        if (volume.value > -10)
+            volumeState.sprite = volState[3];
+
+        else if (volume.value > -50 && volume.value < -10)
+            volumeState.sprite = volState[2];
+
+        else if(volume.value > -80 && volume.value <= - 50)
+            volumeState.sprite = volState[1];
+
+        else
+            volumeState.sprite = volState[0];
+
+        if (volumeMusic.value > -10)
+            MusicState.sprite = musState[3];
+
+        else if (volumeMusic.value > -50 && volumeMusic.value < -10)
+            MusicState.sprite = musState[2];
+
+        else if (volumeMusic.value > -80 && volumeMusic.value <= -50)
+            MusicState.sprite = musState[1];
+
+        else
+            MusicState.sprite = musState[0];
+
+        if (partCompleted[levelPart] == false)
         {
             if (!dManager.tutorialBox.activeSelf && !walkBack)
             {
@@ -126,12 +187,18 @@ public class TutorialManager : MonoBehaviour {
         {
             float r = Vector2.Distance(player.transform.position, bossArenaMiddle.position);
 
-            if (r < 10)
+            if (r < 13)
             {
                 normalCol.SetActive(false);
+                playerShaddow.GetComponent<SpriteRenderer>().sortingLayerName = "Objects";
+                playerShaddow.GetComponent<SpriteRenderer>().sortingOrder = -98;
                 wallCol.GetComponent<CompositeCollider2D>().isTrigger = true;
                 topGround.GetComponent<TilemapRenderer>().sortingLayerName = "Objects";
                 topGround.GetComponent<TilemapRenderer>().sortingOrder = -100;
+                rampTop.GetComponent<SpriteRenderer>().sortingLayerName = "Objects";
+                rampTop.GetComponent<SpriteRenderer>().sortingOrder = -101;
+                ramp.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                ramp.GetComponent<SpriteRenderer>().sortingOrder = 1;
             }
                 if (r == 0 && !bossArenaCol.activeSelf)
             {
@@ -150,7 +217,6 @@ public class TutorialManager : MonoBehaviour {
         if(dManager.bossDialogueFinished)
         {
             float d = Vector2.Distance(water.transform.position, bossArenaMiddle.position);
-
             if(!water.activeSelf)
             {
                 cam.GetComponent<SmoothCamera2D>().ShakeCamera(6, 0.1f);
@@ -177,6 +243,9 @@ public class TutorialManager : MonoBehaviour {
                     canOpenInv = lastCanChangeWeapon;
                     hud.SetActive(true);
                     dManager.bossDialogueFinished = false;
+                    FindObjectOfType<GuideBoss>().startMove = true;
+                    winPanel.SetActive(true);
+                    Time.timeScale = 0;
                 }
             }
 
@@ -264,5 +333,35 @@ public class TutorialManager : MonoBehaviour {
             dManager.area4Dialogue = true;
 
         dManager.StartTutorialDialogue(tutorialDialogues[i]);
+    }
+
+    public void Pause()
+    {
+        manager.Pause();
+    }
+
+    public void Resume()
+    {
+        manager.Resume();
+    }
+
+    public void Restart()
+    {
+        manager.Restart();
+    }
+
+    public void MainMenu()
+    {
+        manager.MainMenu();
+    }
+
+    public void SetVolume(float v)
+    {
+        audioMixer.SetFloat("volume", v);
+    }
+
+    public void SetMusicVolume(float v)
+    {
+        musicMixer.SetFloat("MusicVolume", v);
     }
 }

@@ -85,8 +85,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238728193665660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0127, y: -0.5484, z: 0}
-  m_LocalScale: {x: 6.2455096, y: 1.5819558, z: 1}
+  m_LocalPosition: {x: 0, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4902307534570522}
   m_RootOrder: 2
@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305277170298000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.004051, y: 9, z: 0.16857533}
+  m_LocalPosition: {x: 4.356, y: 10.049, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4718964077750994}
@@ -145,8 +145,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015040879, y: -0.02603078}
-  m_Size: {x: 1.1292311, y: 0.3138858}
+  m_Offset: {x: 0, y: -0.05}
+  m_Size: {x: 0.83, y: 0.28}
   m_Direction: 1
 --- !u!70 &70605636648269550
 CapsuleCollider2D:
@@ -160,8 +160,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000045939945, y: -0.38537225}
-  m_Size: {x: 1.4000007, y: 0.5725508}
+  m_Offset: {x: -0.000000045939945, y: -0.33}
+  m_Size: {x: 0.86, y: 0.45}
   m_Direction: 1
 --- !u!70 &70968108975758614
 CapsuleCollider2D:
@@ -175,8 +175,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0075184703, y: -0.2578766}
-  m_Size: {x: 0.9040609, y: 0.06508643}
+  m_Offset: {x: 0.0075184703, y: -0.23}
+  m_Size: {x: 0.63, y: 0.1}
   m_Direction: 1
 --- !u!114 &114770355478019948
 MonoBehaviour:
@@ -191,10 +191,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: 0
   hits: 0
-  wasHit: {fileID: 21300000, guid: 1e4b3451a1eb9fa449969230030b1f69, type: 3}
-  wasHitL: {fileID: 21300000, guid: fffde3a200b46014a88241c6235ee4fc, type: 3}
-  wasHitR: {fileID: 21300000, guid: 711c7fb17f591624489371b7fff147f4, type: 3}
+  wasHit: {fileID: 21300004, guid: 2395eb8128f7e7f4e8d03642a4da9e28, type: 3}
+  wasHitL: {fileID: 21300004, guid: 2395eb8128f7e7f4e8d03642a4da9e28, type: 3}
+  wasHitR: {fileID: 21300004, guid: 2395eb8128f7e7f4e8d03642a4da9e28, type: 3}
   target: {fileID: 1305277170298000}
+  shaddow: {fileID: 1238728193665660}
+  shaddowHit: {fileID: 21300006, guid: 2395eb8128f7e7f4e8d03642a4da9e28, type: 3}
 --- !u!114 &114893092375044210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
+  isPlayer: 0
 --- !u!212 &212399669105407844
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -239,9 +242,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1479526557
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 80ec2e9ee298708458e847b36ed3bfe4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2395eb8128f7e7f4e8d03642a4da9e28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -285,8 +288,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.566}
+  m_Sprite: {fileID: 21300002, guid: 2395eb8128f7e7f4e8d03642a4da9e28, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

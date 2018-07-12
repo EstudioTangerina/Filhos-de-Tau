@@ -1,0 +1,307 @@
+fileFormatVersion: 2
+guid: 2421328540bb6ef47af48df1f5b4c262
+timeCreated: 1527896659
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Player_WokeUp_0
+    21300002: Player_WokeUp_1
+    21300004: Player_WokeUp_2
+    21300006: Player_WokeUp_3
+    21300008: Player_WokeUp_4
+    21300010: Player_WokeUp_5
+    21300012: Player_WokeUp_6
+    21300014: Player_WokeUp_7
+    21300016: Player_WokeUp_8
+    21300018: Player_WokeUp_9
+    21300020: Player_WokeUp_10
+    21300022: Player_WokeUp_11
+    21300024: Player_WokeUp_12
+    21300026: Player_WokeUp_13
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 364
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_WokeUp_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 830
+        width: 210
+        height: 60
+      alignment: 9
+      pivot: {x: 0.8, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_1
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 830
+        width: 210
+        height: 60
+      alignment: 9
+      pivot: {x: 0.8, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_2
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 825
+        width: 205
+        height: 65
+      alignment: 9
+      pivot: {x: 0.8, y: 0.08}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_3
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 825
+        width: 205
+        height: 65
+      alignment: 9
+      pivot: {x: 0.8, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 575
+        width: 205
+        height: 70
+      alignment: 9
+      pivot: {x: 0.8, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_5
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 555
+        width: 95
+        height: 140
+      alignment: 9
+      pivot: {x: 0.79453444, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_6
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 550
+        width: 70
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.27}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_7
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 550
+        width: 70
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_8
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 300
+        width: 70
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_9
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 300
+        width: 70
+        height: 155
+      alignment: 9
+      pivot: {x: 0.5, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_10
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 300
+        width: 70
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_11
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 315
+        width: 95
+        height: 135
+      alignment: 9
+      pivot: {x: 0.465, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_12
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 65
+        width: 100
+        height: 165
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_WokeUp_13
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 65
+        width: 100
+        height: 185
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

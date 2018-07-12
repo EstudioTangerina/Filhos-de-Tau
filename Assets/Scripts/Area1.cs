@@ -32,15 +32,19 @@ public class Area1 : MonoBehaviour {
         {
             timer += Time.deltaTime;
 
-            if(timer > 4)
+            if(timer < 0.2f)
+                GameObject.FindGameObjectWithTag("NegroD'agua").GetComponent<Animator>().SetBool("Throw", true);
+
+            if (timer > 0.3f)
             {
-                GameObject FdTAxe = (GameObject)Instantiate(startAxe, GameObject.FindObjectOfType<GuideAi>().transform.position, guide.gameObject.transform.rotation);
+                GameObject FdTAxe = (GameObject)Instantiate(startAxe, points[0].transform.position, guide.gameObject.transform.rotation);
                 FdTAxe.transform.eulerAngles = new Vector3(0, 0, 69.34f);
                 FdTAxe.GetComponent<LaunchItem>().point0 = points[0];
                 FdTAxe.GetComponent<LaunchItem>().point1 = points[1];
                 FdTAxe.GetComponent<LaunchItem>().point2 = points[2];
                 FdTAxe.GetComponent<LaunchItem>().path = starteAxePoint.transform;
                 timer = 0;
+                GameObject.FindGameObjectWithTag("NegroD'agua").GetComponent<Animator>().SetBool("Throw", false);
                 startTimer = false;
                 launchAxe = true;
             }

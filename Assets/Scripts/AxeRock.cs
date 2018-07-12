@@ -19,6 +19,15 @@ public class AxeRock : MonoBehaviour {
             col = true;
         }
 
+        if(col && collided)
+        {
+            if (GameObject.FindGameObjectWithTag("Player").transform.position.y > transform.position.y)
+                GetComponent<SpriteRenderer>().sortingOrder = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().sortingOrder + 1;
+
+            else
+                GetComponent<SpriteRenderer>().sortingOrder = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().sortingOrder - 1;
+        }
+
         if(!collided && col)
         {
             GetComponent<Animator>().enabled = false;
@@ -31,10 +40,14 @@ public class AxeRock : MonoBehaviour {
     {
         if (collision.gameObject.tag == "FirstItens")
         {
+            GetComponent<SpriteRenderer>().sortingOrder = -21;
             collided = true;
-            collision.gameObject.GetComponent<ItemName>().enabled = true;
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-           // GetComponent<ReOrderLayer>().offset = 0f;
+            collision.gameObject.GetComponent<LaunchItem>().enabled = false;
+            collision.gameObject.GetComponent<Collider2D>().offset = new Vector2(0.57f, 0.28f);
+            collision.gameObject.transform.position = this.transform.position;
+            collision.gameObject.transform.rotation = this.transform.rotation;
+            collision.gameObject.GetComponent<ItemName>().enabled = true;
         }
     }
 
@@ -43,7 +56,7 @@ public class AxeRock : MonoBehaviour {
         if (collision.gameObject.tag == "FirstItens")
         {
             collided = false;
-         //   GetComponent<ReOrderLayer>().offset = -0.5f;
+            GetComponent<SpriteRenderer>().sortingOrder = -23;
         }
     }
 }

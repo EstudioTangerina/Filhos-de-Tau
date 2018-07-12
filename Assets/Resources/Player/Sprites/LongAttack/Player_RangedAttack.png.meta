@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a5009b27ae2d63c4191fd9023ea25439
-timeCreated: 1527533363
+timeCreated: 1527888881
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -22,6 +22,7 @@ TextureImporter:
     21300030: Player_RangedAttack_15
     21300032: Player_RangedAttack_16
     21300034: Player_RangedAttack_17
+    21300036: Player_RangedAttack_18
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,8 +116,8 @@ TextureImporter:
         y: 3549
         width: 203
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -125,12 +126,12 @@ TextureImporter:
       name: Player_RangedAttack_1
       rect:
         serializedVersion: 2
-        x: 1248
-        y: 3549
-        width: 204
-        height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1109
+        y: 3550
+        width: 202
+        height: 371
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,12 +140,12 @@ TextureImporter:
       name: Player_RangedAttack_2
       rect:
         serializedVersion: 2
-        x: 2288
-        y: 3549
+        x: 2008
+        y: 3550
         width: 203
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,8 +158,8 @@ TextureImporter:
         y: 3049
         width: 203
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,12 +168,12 @@ TextureImporter:
       name: Player_RangedAttack_4
       rect:
         serializedVersion: 2
-        x: 2288
+        x: 2009
         y: 3049
         width: 203
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,8 +186,8 @@ TextureImporter:
         y: 2549
         width: 203
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,12 +196,12 @@ TextureImporter:
       name: Player_RangedAttack_6
       rect:
         serializedVersion: 2
-        x: 1248
+        x: 1109
         y: 2549
-        width: 204
+        width: 202
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,12 +210,12 @@ TextureImporter:
       name: Player_RangedAttack_7
       rect:
         serializedVersion: 2
-        x: 2288
+        x: 2009
         y: 2549
         width: 203
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,12 +224,12 @@ TextureImporter:
       name: Player_RangedAttack_8
       rect:
         serializedVersion: 2
-        x: 1289
-        y: 2049
-        width: 313
+        x: 1150
+        y: 2048
+        width: 252
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -237,12 +238,12 @@ TextureImporter:
       name: Player_RangedAttack_9
       rect:
         serializedVersion: 2
-        x: 2329
+        x: 2049
         y: 2049
-        width: 303
+        width: 252
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,10 +254,10 @@ TextureImporter:
         serializedVersion: 2
         x: 248
         y: 1549
-        width: 293
+        width: 256
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,12 +266,12 @@ TextureImporter:
       name: Player_RangedAttack_11
       rect:
         serializedVersion: 2
-        x: 1289
+        x: 1148
         y: 1549
-        width: 272
+        width: 253
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -279,12 +280,12 @@ TextureImporter:
       name: Player_RangedAttack_12
       rect:
         serializedVersion: 2
-        x: 2329
+        x: 2050
         y: 1549
-        width: 252
+        width: 251
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,12 +294,12 @@ TextureImporter:
       name: Player_RangedAttack_13
       rect:
         serializedVersion: 2
-        x: 1178
+        x: 1099
         y: 1049
-        width: 313
+        width: 252
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.62, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -307,12 +308,12 @@ TextureImporter:
       name: Player_RangedAttack_14
       rect:
         serializedVersion: 2
-        x: 2229
-        y: 1049
-        width: 303
+        x: 1999
+        y: 1048
+        width: 252
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.62, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -321,12 +322,12 @@ TextureImporter:
       name: Player_RangedAttack_15
       rect:
         serializedVersion: 2
-        x: 158
+        x: 199
         y: 549
-        width: 293
+        width: 252
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.62, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -335,12 +336,12 @@ TextureImporter:
       name: Player_RangedAttack_16
       rect:
         serializedVersion: 2
-        x: 1219
+        x: 1100
         y: 549
-        width: 272
+        width: 250
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.62, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,12 +350,12 @@ TextureImporter:
       name: Player_RangedAttack_17
       rect:
         serializedVersion: 2
-        x: 2278
+        x: 1999
         y: 549
-        width: 254
+        width: 252
         height: 373
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.62, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -61,7 +61,7 @@ public class EnemyAIRaycast : MonoBehaviour
 
         float range = Vector2.Distance(transform.position, target.position);
 
-        if (range < ai.maxDist && range > ai.minDist && !ai.isAttacking && ai.isWalking && !ai.isDead)
+        if (range < ai.maxDist && ai.colGO == null && !ai.isAttacking && ai.isWalking && !ai.isDead && !ai.knockbackActive)
         {
             if (coroutineStarted == false)
             {
@@ -78,9 +78,9 @@ public class EnemyAIRaycast : MonoBehaviour
             SetFacingToPlayer();
         }
 
-        if (target.tag != "Player" && range > ai.minDist && !ai.isDead)
+        if (target.tag != "Player" && ai.colGO == null && !ai.isDead && !ai.knockbackActive)
         {
-            if (range > ai.minDist)
+            if (ai.colGO == null)
             {
                 if (coroutineStarted == false)
                 {

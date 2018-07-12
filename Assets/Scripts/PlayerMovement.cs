@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject clawHUD;
     [SerializeField]
-    private GameObject noArrows;
+    private GameObject warnings;
     private bool roll;
     private float rollEnergyConsum;
     [SerializeField]
@@ -110,10 +111,31 @@ public class PlayerMovement : MonoBehaviour
     private float startTimer;
     #endregion
 
+    public int closeAttackIndex;
+    private int attackMaxIndex;
+    public float closeAttackTimer;
+    public GameObject playerMiddle;
+
+    public Vector2 knockbackDir;
+    public bool knockbackActive;
+    public float knockbackDirDist;
+    public bool canReceiveKnockback;
+    public float kncokbackTimer;
+
+    public List<GameObject> colGOList = new List<GameObject>();
+
+    public GameObject losePanel;
+    private float loseTimer;
+	
+	public bool upRamp;
+	public Vector3 scale;
     #region Main Functions
     // Use this for initialization
     void Start()
     {
+		scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        canReceiveKnockback = true;
+        closeAttackIndex = -1;
         objectiveDist = 10;
         velocity = new Vector2(1.75f, 1.1f);
         rb2D = gameObject.GetComponent<Rigidbody2D>();
@@ -134,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
         }
         /////////// SET VARIABLES OF SOME ACTIONS ///////////
         //ammo = maxAmmo;
-        noArrows.SetActive(false);
+        warnings.SetActive(false);
         clawHUD.SetActive(false);
         rollEnergyConsum = 12.5f;
         arrowVel = 15f;
@@ -151,61 +173,73 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("y", -1);
 
         ////////////// SET THE ATTACKS DAMAGE /////////////////
-        dmg.Add("Close", 15); // Close Range Attack DMG
+        dmg.Add("Close", 10); // Close Range Attack DMG
         dmg.Add("Range", 25); // Ranged Attack DMG
         dmg.Add("Magic", 50); // Magic Attack DMG
 
-        //colGO = null; // Variable used to detect the colliding enemy
+        colGO = null; // Variable used to detect the colliding enemy
         controle = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(anim.GetBool("Died"))
+        {
+            if (loseTimer < 2)
+                loseTimer += Time.deltaTime;
+
+            else if(loseTimer > 2 && !losePanel.activeSelf)
+            {
+                losePanel.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+
         if (onStart)
         {
             startTimer += Time.deltaTime;
 
-            if (startTimer > 1 && startTimer < 1.3f)
+            if (startTimer > 1.5 && startTimer < 1.8f)
                 anim.SetBool("WokeUp", true);
 
 
-            if (startTimer > 2.1f && startTimer <= 2.7f)
+            if (startTimer > 3.8f && startTimer <= 4.5f)
             {
                 anim.SetFloat("x", 1);
                 anim.SetFloat("y", 0);
             }
 
-            else if (startTimer > 2.7f && startTimer <= 3.3f)
+            else if (startTimer > 4.5f && startTimer <= 5.2f)
             {
                 anim.SetFloat("x", 0);
                 anim.SetFloat("y", 1);
             }
 
-            else if (startTimer > 3.3f && startTimer <= 3.9f)
+            else if (startTimer > 5.2f && startTimer <= 5.9f)
             {
                 anim.SetFloat("x", -1);
                 anim.SetFloat("y", 0);
             }
 
-            else if (startTimer > 3.9f && startTimer <= 4.5f)
+            else if (startTimer > 5.9f && startTimer <= 6.6f)
             {
                 anim.SetFloat("x", 0);
                 anim.SetFloat("y", -1);
             }
 
-            else if (startTimer > 4.5f && startTimer <= 5f && !FindObjectOfType<GuideAi>().start)
+            else if (startTimer > 6.6f && startTimer <= 7.3f && !FindObjectOfType<GuideAi>().start)
             {
                 doubt[0].SetActive(true);
                 FindObjectOfType<GuideAi>().start = true;
 
             }
-            else if (startTimer <= 5.5f)
+            else if (startTimer <= 8f)
             {
-                if (startTimer >= 4.8f)
+                if (startTimer >= 6.8f)
                     doubt[1].SetActive(true);
 
-                if (startTimer >= 5f)
+                if (startTimer >= 7f)
                 {
                     doubt[2].SetActive(true);
                     onStart = false;
@@ -226,12 +260,12 @@ public class PlayerMovement : MonoBehaviour
         bool mouseLook = true;
 
         #region Read The Inputs
-            if(item != null && Input.GetKeyDown(pursuitButton))
-            {
+        if (item != null && Input.GetKeyDown(pursuitButton))
+        {
             pickingUp = true;
             anim.SetBool("isWalking", false);
             StartCoroutine("PickUPWait");
-            }
+        }
 
         if (anim.GetBool("PickUp") == false)
         {
@@ -248,7 +282,7 @@ public class PlayerMovement : MonoBehaviour
 
             else
             {
-                if (canWalk)
+                if (canWalk && !knockbackActive)
                 {
                     // Up - Down
                     if (Input.GetKey(leftButton) || Input.GetKey(rightButton))
@@ -321,7 +355,10 @@ public class PlayerMovement : MonoBehaviour
                         isAiming = true;
 
                     else
-                        noArrows.SetActive(true);
+                    {
+                        warnings.GetComponent<TextMeshProUGUI>().text = "Sem Flechas";
+                        warnings.SetActive(true);
+                    }
                 }
             }
 
@@ -342,7 +379,7 @@ public class PlayerMovement : MonoBehaviour
             if (roll)
                 isWalking = true;
 
-            else if(!roll && !mouseLook && canWalk)
+            else if (!roll && !mouseLook && canWalk)
                 isWalking = (Mathf.Abs(x) + Mathf.Abs(y)) > 0;
         }
 
@@ -414,14 +451,21 @@ public class PlayerMovement : MonoBehaviour
         //////////// ATTACK DETECTION WHILE COLLIDING //////////////////
         if (colGO != null)
         {
-                if (anim.GetBool("PickUp") == false && colGO.gameObject.tag == "Enemy" &&
-                    isAttacking && controle && attackTimer >= (closeAttack.length / 5) * 4)
+            if (anim.GetBool("PickUp") == false && colGO.gameObject.tag == "Enemy" &&
+                isAttacking && controle && attackTimer >= (closeAttack.length / 5) * 4)
+            {
+                for(int i = 0; i < colGOList.Count; i++)
                 {
-                       colGO.GetComponent<EnemyHealth>().TakeDamage(dmg["Close"]);
-                       controle = false;
-                       colGO = null;
+                    colGOList[i].GetComponent<EnemyHealth>().TakeDamage(dmg["Close"]);
+
+                    if (closeAttackIndex == attackMaxIndex && colGOList[i].GetComponent<EnemyHealth>().curHealth > dmg["Close"] && colGOList[i].GetComponent<EnemyAI>() != null)
+                        colGOList[i].GetComponent<EnemyAI>().Knockback(rayV.x, rayV.y);
                 }
-            
+
+                controle = false;
+                colGO = null;
+            }
+
         }
 
         //////////// SLOW-PLAYER CONTROLLER /////////////////
@@ -439,20 +483,19 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(noArrows.activeSelf)
+        if (warnings.activeSelf)
         {
             noArrowsTimer += Time.deltaTime;
         }
 
-        if(noArrowsTimer > 0.5f)
+        if (noArrowsTimer > 0.5f)
         {
-            noArrows.SetActive(false);
+            warnings.SetActive(false);
             noArrowsTimer = 0;
         }
-
         #endregion
 
-        if(walkToObjective)
+        if (walkToObjective)
         {
             move = false;
             objectiveDist = Vector2.Distance(transform.position, objective.position);
@@ -502,6 +545,34 @@ public class PlayerMovement : MonoBehaviour
                 walkToObjective = false;
             }
         }
+
+        if (closeAttackIndex >= 0)
+        {
+            closeAttackTimer += Time.deltaTime;
+        }
+
+        if (closeAttackTimer > closeAttack.length * 2.7f)
+        {
+            closeAttackIndex = -1;
+            closeAttackTimer = 0;
+        }
+
+        if (knockbackActive)
+        {
+            knockbackDirDist = Vector2.Distance(transform.position, knockbackDir);
+
+            if (kncokbackTimer > 0.5f)
+            {
+                knockbackActive = false;
+                kncokbackTimer = 0;
+            }
+
+            if (knockbackDirDist > 0)
+                transform.position = Vector2.MoveTowards(transform.position, knockbackDir, vel * 8 * Time.deltaTime);
+
+            else
+                knockbackActive = false;
+        }
     }
 
 
@@ -512,6 +583,14 @@ public class PlayerMovement : MonoBehaviour
             velPos = new Vector2(x * vel * moveModifier, y * vel * moveModifier);
             rb2D.MovePosition(rb2D.position + velPos * Time.fixedDeltaTime);
         }
+		
+		if(upRamp && transform.localScale.x < 2.9f)
+		{
+			scale.x += 0.009f;
+			scale.y += 0.009f;
+			
+			transform.localScale = new Vector3(scale.x, scale.y, scale.z);
+		}
 
         //////////// PLAYER ROOL /////////////////
         if (roll)
@@ -548,7 +627,7 @@ public class PlayerMovement : MonoBehaviour
                 GetComponent<EnergyBar>().curEnergy -= rollEnergyConsum;
             }
 
-            anim.speed = 2f;
+            //anim.speed = 2f;
 
             rollTimer += Time.deltaTime;
             //transform.Translate(curAxis.x * vel * 3f * Time.deltaTime, curAxis.y * vel * 3f * Time.deltaTime, 0);
@@ -556,13 +635,13 @@ public class PlayerMovement : MonoBehaviour
             Vector2 rolPos = new Vector2(curAxis.x * vel * 3f, curAxis.y * vel * 3f);
             rb2D.MovePosition(rb2D.position + rolPos * Time.fixedDeltaTime);
 
-            if (rollTimer >= rollClip.length * (1 / anim.speed))
+            if (rollTimer >= rollClip.length)
             {
                 anim.SetFloat("x", curAxis.x);
                 anim.SetFloat("y", curAxis.y);
                 roll = false;
                 rollTimer = 0;
-                anim.speed = 1f;
+                //anim.speed = 1f;
                 gameObject.layer = 8;
                 //GetComponent<Collider2D>().enabled = true;
             }
@@ -574,17 +653,49 @@ public class PlayerMovement : MonoBehaviour
     //////////// SLOW THE PLAYER /////////////////
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Itens" || collision.gameObject.tag == "FirstItens" || collision.gameObject.tag == "AddArrow")
+        if (collision.gameObject.tag == "Itens" || collision.gameObject.tag == "FirstItens" || collision.gameObject.tag == "AddArrow" || collision.gameObject.tag == "AddLife")
         {
             item = collision.gameObject;
         }
     }
-
+	
+	    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ramp")
+        {
+            upRamp = true;
+        }
+	}
+	
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Itens" || collision.gameObject.tag == "FirstItens" || collision.gameObject.tag == "AddArrow")
+        if (collision.gameObject.tag == "Itens" || collision.gameObject.tag == "FirstItens" || collision.gameObject.tag == "AddArrow" || collision.gameObject.tag == "AddLife")
         {
             item = null;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ColTag")
+        {
+            knockbackActive = false;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ColTag")
+        {
+            canReceiveKnockback = false;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ColTag")
+        {
+            canReceiveKnockback = true;
         }
     }
 
@@ -608,7 +719,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move(float speed)
     {
-        anim.speed = speed;
+        if (speed <= 1)
+            anim.speed = speed;
+
+        else
+            anim.speed = 1.5f;
+
 
         anim.SetFloat("x", x);
         anim.SetFloat("y", y);
@@ -624,24 +740,45 @@ public class PlayerMovement : MonoBehaviour
             hit.transform.rotation = aim.transform.rotation;
 
             if (attackName == "isAttacking")
-                hit.GetComponent<BoxCollider2D>().enabled = true;
+            {
+                hit.GetComponent<Collider2D>().enabled = true;
 
+                if (Mathf.Abs(rayV.y) > Mathf.Abs(rayV.x))
+                    attackMaxIndex = 1;
+
+                else
+                {
+                    attackMaxIndex = 2;
+                }
+                if (closeAttackIndex < attackMaxIndex)
+                    closeAttackIndex++;
+
+                else
+                    closeAttackIndex = 0;
+
+                closeAttackTimer = 0;
+            }
             aim.GetComponent<Aim>().canAim = false;
             x = rayV.x;
             y = rayV.y;
             anim.SetFloat("x", x);
             anim.SetFloat("y", y);
         }
+
+        if (closeAttackIndex >= 0)
+            anim.SetInteger("AttackIndex", closeAttackIndex);
+
         anim.SetBool(attackName, attackType);
+
         attackTimer += Time.deltaTime;
         bool above = false;
 
-        if (attackName == "isAiming" && attackTimer >= attackClipLenght - 0.2f && controlArrow)
+        if (attackName == "isAiming" && attackTimer >= attackClipLenght && controlArrow)
         {
-            if (y > 0)
+            if (rayV.y > 0)
                 above = true;
 
-            GameObject arrow = (GameObject)Instantiate(arrowPrefab, transform.position, aim.transform.rotation);
+            GameObject arrow = (GameObject)Instantiate(arrowPrefab, playerMiddle.transform.position, aim.transform.rotation);
 
             if (above)
                 arrow.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
@@ -655,8 +792,9 @@ public class PlayerMovement : MonoBehaviour
             controlArrow = false;
         }
 
-        yield return new WaitForSeconds(attackClipLenght);
+        yield return new WaitForSeconds(attackClipLenght * 1.5f);
 
+        controle = false;
         attackType = false;
         isAttacking = false;
         isMagicActive = false;
@@ -665,8 +803,9 @@ public class PlayerMovement : MonoBehaviour
         attackTimer = 0;
         anim.SetBool(attackName, attackType);
         aim.GetComponent<Aim>().canAim = true;
-        hit.GetComponent<BoxCollider2D>().enabled = false;
+        hit.GetComponent<Collider2D>().enabled = false;
         hit.GetComponent<HitCollider>().colliding = false;
+        colGOList.Clear();
         StopAllCoroutines();
     }
 
@@ -708,7 +847,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("PickUp", true);
         yield return new WaitForSeconds(pickUPClip.length);
 
-        if (item != null && item.tag != "FirstItens" && item.tag != "AddArrow")
+        if (item != null && item.tag != "FirstItens" && item.tag != "AddArrow" && item.tag != "AddLife")
         {
             item.GetComponent<ItemPickUP>().PickUP();
         }
@@ -722,6 +861,19 @@ public class PlayerMovement : MonoBehaviour
             item.GetComponent<AddArrow>().Change();
         }
 
+        else if (item != null && item.tag == "AddLife")
+        {
+            if (GetComponent<PlayerHealth>().curHealth != GetComponent<PlayerHealth>().maxHealth)
+                item.GetComponent<AddLife>().Change();
+
+            else
+            {
+                warnings.GetComponent<TextMeshProUGUI>().text = "Vida Cheia";
+                warnings.SetActive(true);
+            }
+
+        }
+
         anim.SetBool("PickUp", false);
         pickingUp = false;
         StopCoroutine("PickUPWait");
@@ -731,6 +883,16 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetFloat("x", xL);
         anim.SetFloat("y", yL);
+    }
+
+    public void Knockback(float x, float y)
+    {
+        if (canReceiveKnockback)
+        {
+            knockbackActive = true;
+            knockbackDir = new Vector2(transform.position.x - (-x), transform.position.y - (-y));
+            isAttacking = false;
+        }
     }
     #endregion
 }

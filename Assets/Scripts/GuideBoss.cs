@@ -11,28 +11,46 @@ public class GuideBoss : MonoBehaviour
     public Vector3[] positions = new Vector3[50];
     private int index;
     public float vel;
-    public bool startMove;
+    public bool startMove = true;
     public Transform[] area1WayP;
     public Transform[] area2WayP;
     public Transform[] area2_1WayP;
     public Transform[] area3WayP;
-    public Transform[,] pointsAreas = new Transform[4, 3];
+    public Transform[,] pointsAreas = new Transform[6, 3];
     public int stoppedArea;
     public GameObject sayOrder;
     public GameObject sayPickBow;
-    public Transform area3Stop;
+    //public Transform area3Stop;
     private float x, y;
     private Animator anim;
+
+    public int timer = 0;
+    public int limite;
+    public bool ataque = false;
+    public Transform[] meio;
+    public int pontoParado;
+
+    public GameObject peixe;
+    public GameObject jatoDeAgua;
+
+    public GameObject TiroCima;
+    public GameObject TiroDireita;
+    public GameObject TiroEsquerda;
+
+    bool atacou = false;
+    public int tempoParado;
+    public bool instanciado;
+
+    public GameObject Player;
+
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+
         x = 0;
         y = -1;
         anim = GetComponent<Animator>();
-        //lineRenderer.positionCount = numPoints;
-
-        pointsAreas[0, 0] = area2_1WayP[0];
-        pointsAreas[0, 1] = area2_1WayP[1];
-        pointsAreas[0, 2] = area2_1WayP[2];
+        lineRenderer.positionCount = numPoints;
 
         pointsAreas[1, 0] = area1WayP[0];
         pointsAreas[1, 1] = area1WayP[1];
@@ -42,29 +60,108 @@ public class GuideBoss : MonoBehaviour
         pointsAreas[2, 1] = area2WayP[1];
         pointsAreas[2, 2] = area2WayP[2];
 
+        pointsAreas[0, 0] = area2_1WayP[0];
+        pointsAreas[0, 1] = area2_1WayP[1];
+        pointsAreas[0, 2] = area2_1WayP[2];
+
         pointsAreas[3, 0] = area3WayP[0];
         pointsAreas[3, 1] = area3WayP[1];
         pointsAreas[3, 2] = area3WayP[2];
 
-        sayOrder.SetActive(false);
-        sayPickBow.SetActive(false);
-       
+        anim.SetInteger("lado", 0);
+
+        DrawQuadraticCurve();
+
+        limite = Random.Range(580, 1090);
     }
 
     public void Update()
     {
-        anim.SetFloat("x", x);
-        anim.SetFloat("y", y);
+
+        if (ataque == false && startMove == true)
+        {
+            timer++;
+            anim.SetInteger("lado", 30);
+        }
+
+        if(ataque == false && timer >80)
+        {
+            this.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            this.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+        }
+        else if(ataque == true)
+        {
+            this.GetComponent<SpriteRenderer>().sortingOrder = 3;
+            this.GetComponent<SpriteRenderer>().sortingLayerName = "GroundTop";
+        }
+
+
+        if (timer >= limite)
+        {
+            pontoParado = Random.Range(0, 3);
+            timer = 0;
+            ataque = true;
+            limite = Random.Range(580, 1090);
+        }
+
+        if(ataque == true)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, meio[pontoParado].position, vel * Time.deltaTime);
+            startMove = false;
+            atacou = false;
+        }
+
+        if (transform.position.x == meio[pontoParado].position.x && transform.position.y == meio[pontoParado].position.y)
+        {
+            tempoParado++;
+            anim.SetInteger("lado", pontoParado);
+
+            if (tempoParado == 150)
+            {
+               
+                if (atacou == false)
+                {
+                    Ataque(Random.Range(3, 4));
+                }
+            }
+            if (tempoParado >= 900)
+            {
+                tempoParado = 0;
+                ataque = false;
+                startMove = true;
+                anim.SetInteger("lado", 30);
+            }
+
+        }
+
+
+        //anim.SetFloat("x", x);
+        //anim.SetFloat("y", y);
         DrawQuadraticCurve();
         if (startMove)
             move();
 
+        if (stoppedArea == 1 && !startMove)
+        {        
+            ChangeWaypoints(1);
+        }
         if (stoppedArea == 2 && !startMove)
         {
-            x = -1;
-            y = 0;
-            sayOrder.SetActive(true);
+            ChangeWaypoints(2);
         }
+        if (stoppedArea == 3 && !startMove)
+        {
+            ChangeWaypoints(0);
+        }
+        if (stoppedArea == 4 && !startMove)
+        {
+            ChangeWaypoints(3);
+        }
+        if (stoppedArea == 5 && !startMove)
+        {
+            ChangeWaypoints(4);
+        }
+
 
         if (stoppedArea == 1 && !startMove)
         {
@@ -78,35 +175,89 @@ public class GuideBoss : MonoBehaviour
             y = -1;
         }
 
-        if (stoppedArea == 3 && !sayPickBow.activeSelf)
-        {
-            float r = Vector2.Distance(transform.position, area3Stop.position);
-
-            if (r > 0)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, area3Stop.position, vel * Time.deltaTime);
-                SetFacingToPath(area3Stop.position);
-                anim.SetBool("isWalking", true);
-            }
-            else
-            {
-                anim.SetBool("isWalking", false);
-                sayPickBow.SetActive(true);
-                x = 0;
-                y = -1;
-            }
-
-        }
 
 
         if (index == positions.Length && startMove)
         {
             startMove = false;
             stoppedArea++;
-            if (stoppedArea != 3)
-                anim.SetBool("isWalking", false);
+            if (stoppedArea > 4)
+            {
+                stoppedArea = 1;
+            }
             index = 0;
         }
+    }
+
+    public void Ataque(int x)
+    {
+        
+
+        if(x == 1)
+        {
+            Debug.Log("Peixada");
+            if (pontoParado == 0)
+            {
+                peixe.transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);
+                //topo
+            }
+            else if (pontoParado == 1)
+            {
+                peixe.transform.position = new Vector2(transform.position.x + 0.5f, transform.position.y);
+                //direita
+            }
+            else if (pontoParado == 2)
+            {
+                peixe.transform.position = new Vector2(transform.position.x - 0.5f, transform.position.y);
+                //esquerda
+            }
+            /*
+            else if (pontoParado == 3)
+            {
+                
+                peixe.transform.position = new Vector2(transform.position.x , transform.position.y);
+                //baixo
+            }*/
+            Instantiate(peixe);
+            
+            atacou = true;
+        }
+        if (x == 2)
+        {
+            jatoDeAgua.transform.position = new Vector2(transform.position.x, transform.position.y);
+            Instantiate(jatoDeAgua);
+        }
+        if (x == 3)
+        {
+            if (pontoParado == 0)
+            {
+                TiroCima.transform.position = new Vector2(transform.position.x, transform.position.y);
+                Instantiate(TiroCima);
+                if(tempoParado > 450 && tempoParado < 455)
+                {
+                    Instantiate(TiroCima);
+                }
+            }
+            else if (pontoParado == 1)
+            {
+                TiroDireita.transform.position = new Vector2(transform.position.x, transform.position.y);
+                Instantiate(TiroDireita);
+                if (tempoParado > 450 && tempoParado < 455)
+                {
+                    Instantiate(TiroDireita);
+                }
+            }
+            else if (pontoParado == 2)
+            {
+                TiroEsquerda.transform.position = new Vector2(transform.position.x, transform.position.y);
+                Instantiate(TiroEsquerda);
+                if (tempoParado > 450 && tempoParado < 455)
+                {
+                    Instantiate(TiroEsquerda);
+                }
+            }
+        }
+
     }
 
     public void ChangeWaypoints(int x)
@@ -161,7 +312,7 @@ public class GuideBoss : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(transform.position, positions[index], vel * Time.deltaTime);
                 SetFacingToPath(positions[index]);
-                anim.SetBool("isWalking", true);
+                //anim.SetBool("isWalking", true);
             }
             else
                 index++;

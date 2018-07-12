@@ -30,7 +30,7 @@ public class RhythmBar : MonoBehaviour {
         {
             timer += Time.deltaTime;
 
-            if(timer > 0.25f)
+            if(timer > 0.15f)
             {
                 timer = 0;
                 freeze = false;
@@ -40,7 +40,7 @@ public class RhythmBar : MonoBehaviour {
 
     void MoveCursor()
     {
-        if (x < 0.01f)
+        if (x < 0f)
         {
             cursor.transform.Translate(cursorSpeed * Time.deltaTime, 0, 0);
             cursor2.transform.Translate(-cursorSpeed * Time.deltaTime, 0, 0);
@@ -48,31 +48,21 @@ public class RhythmBar : MonoBehaviour {
 
         else
         {
-            cursor.transform.localPosition = new Vector3(-1, 0, 0);
-            cursor2.transform.localPosition = new Vector3(1, 0, 0);
+            cursor.transform.localPosition = new Vector3(-0.15f, 0, 0);
+            cursor2.transform.localPosition = new Vector3(0.15f, 0, 0);
         }
     }
 
     void SetIntensity()
     {
-        if (x <= -0.8f || x >= 0.8f)
+        if (x <= -0.06f || x >= 0.06f)
         {
             intensity = dmgMultipliers[0];
         }
 
-        else if (x > -0.8f && x <= -0.4f || x < 0.8f && x >= 0.4f)
-        {
-            intensity = dmgMultipliers[1];
-        }
-
-        else if (x > -0.4f && x <= -0.15f || x < 0.4f && x >= 0.15f)
+        else if (x > -0.06f && x <= -0.02f || x < -0.06f && x >= 0.02f)
         {
             intensity = dmgMultipliers[2];
-        }
-
-        else if (x > -0.15f && x <= -0.1f || x < 0.15f && x >= 0.1f)
-        {
-            intensity = dmgMultipliers[3];
         }
 
         else

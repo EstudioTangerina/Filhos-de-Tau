@@ -1,9 +1,42 @@
 fileFormatVersion: 2
 guid: 187f9e6266fa20449ae0dcde21b82416
-timeCreated: 1527531702
+timeCreated: 1527801134
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Player_CloseAttack_AB_0
+    21300002: Player_CloseAttack_AB_1
+    21300004: Player_CloseAttack_AB_2
+    21300006: Player_CloseAttack_AB_3
+    21300008: Player_CloseAttack_AB_4
+    21300010: Player_CloseAttack_AB_5
+    21300012: Player_CloseAttack_AB_6
+    21300014: Player_CloseAttack_AB_7
+    21300016: Player_CloseAttack_AB_8
+    21300018: Player_CloseAttack_AB_9
+    21300020: Player_CloseAttack_AB_10
+    21300022: Player_CloseAttack_AB_11
+    21300024: Player_CloseAttack_AB_12
+    21300026: Player_CloseAttack_AB_13
+    21300028: Player_CloseAttack_AB_14
+    21300030: Player_CloseAttack_AB_15
+    21300032: Player_CloseAttack_AB_16
+    21300034: Player_CloseAttack_AB_17
+    21300036: Player_CloseAttack_AB_18
+    21300038: Player_CloseAttack_AB_19
+    21300040: Player_CloseAttack_AB_20
+    21300042: Player_CloseAttack_AB_21
+    21300044: Player_CloseAttack_AB_22
+    21300046: Player_CloseAttack_AB_23
+    21300048: Player_CloseAttack_AB_24
+    21300050: Player_CloseAttack_AB_25
+    21300052: Player_CloseAttack_AB_26
+    21300054: Player_CloseAttack_AB_27
+    21300056: Player_CloseAttack_AB_28
+    21300058: Player_CloseAttack_AB_29
+    21300060: Player_CloseAttack_AB_30
+    21300062: Player_CloseAttack_AB_31
+    21300064: Player_CloseAttack_AB_32
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -88,7 +121,469 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_0
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 4049
+        width: 202
+        height: 372
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_1
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 4049
+        width: 235
+        height: 442
+      alignment: 9
+      pivot: {x: 0.44, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_2
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 4049
+        width: 224
+        height: 372
+      alignment: 9
+      pivot: {x: 0.415, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_3
+      rect:
+        serializedVersion: 2
+        x: 2888
+        y: 4050
+        width: 233
+        height: 441
+      alignment: 9
+      pivot: {x: 0.53, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_4
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 3549
+        width: 222
+        height: 373
+      alignment: 9
+      pivot: {x: 0.55, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_5
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 3549
+        width: 204
+        height: 373
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_6
+      rect:
+        serializedVersion: 2
+        x: 2908
+        y: 3549
+        width: 224
+        height: 373
+      alignment: 9
+      pivot: {x: 0.47, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_7
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 2999
+        width: 242
+        height: 422
+      alignment: 9
+      pivot: {x: 0.5, y: 0.12}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_8
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 3048
+        width: 224
+        height: 373
+      alignment: 9
+      pivot: {x: 0.55, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_9
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 2999
+        width: 273
+        height: 422
+      alignment: 9
+      pivot: {x: 0.45, y: 0.14}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_10
+      rect:
+        serializedVersion: 2
+        x: 2908
+        y: 3048
+        width: 255
+        height: 373
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_11
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 2549
+        width: 222
+        height: 373
+      alignment: 9
+      pivot: {x: 0.46, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_12
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2551
+        width: 244
+        height: 373
+      alignment: 9
+      pivot: {x: 0.37, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_13
+      rect:
+        serializedVersion: 2
+        x: 2947
+        y: 2549
+        width: 315
+        height: 373
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_14
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 2048
+        width: 335
+        height: 384
+      alignment: 9
+      pivot: {x: 0.3, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_15
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 2428
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_16
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 2048
+        width: 273
+        height: 373
+      alignment: 9
+      pivot: {x: 0.35, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_17
+      rect:
+        serializedVersion: 2
+        x: 2037
+        y: 2048
+        width: 326
+        height: 373
+      alignment: 9
+      pivot: {x: 0.35, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_18
+      rect:
+        serializedVersion: 2
+        x: 2927
+        y: 2048
+        width: 275
+        height: 373
+      alignment: 9
+      pivot: {x: 0.4, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_19
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1549
+        width: 244
+        height: 374
+      alignment: 9
+      pivot: {x: 0.35, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_20
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 1549
+        width: 365
+        height: 374
+      alignment: 9
+      pivot: {x: 0.35, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_21
+      rect:
+        serializedVersion: 2
+        x: 2029
+        y: 1549
+        width: 362
+        height: 374
+      alignment: 9
+      pivot: {x: 0.35, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_22
+      rect:
+        serializedVersion: 2
+        x: 2938
+        y: 1549
+        width: 324
+        height: 374
+      alignment: 9
+      pivot: {x: 0.37, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_23
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 1048
+        width: 222
+        height: 374
+      alignment: 9
+      pivot: {x: 0.45, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_24
+      rect:
+        serializedVersion: 2
+        x: 1938
+        y: 1048
+        width: 315
+        height: 374
+      alignment: 9
+      pivot: {x: 0.7, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_25
+      rect:
+        serializedVersion: 2
+        x: 2879
+        y: 1048
+        width: 264
+        height: 374
+      alignment: 9
+      pivot: {x: 0.65, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_26
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 549
+        width: 354
+        height: 374
+      alignment: 9
+      pivot: {x: 0.75, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_27
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 549
+        width: 314
+        height: 374
+      alignment: 9
+      pivot: {x: 0.73, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_28
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 549
+        width: 224
+        height: 374
+      alignment: 9
+      pivot: {x: 0.47, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_29
+      rect:
+        serializedVersion: 2
+        x: 2818
+        y: 549
+        width: 325
+        height: 374
+      alignment: 9
+      pivot: {x: 0.7, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_30
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 48
+        width: 323
+        height: 374
+      alignment: 9
+      pivot: {x: 0.72, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_31
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 48
+        width: 306
+        height: 374
+      alignment: 9
+      pivot: {x: 0.7, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Player_CloseAttack_AB_32
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 48
+        width: 224
+        height: 374
+      alignment: 9
+      pivot: {x: 0.47, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
