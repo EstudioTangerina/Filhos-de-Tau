@@ -107,41 +107,45 @@ public class GuideAi : MonoBehaviour {
             }
         }
 
-        /*
-        if (stoppedArea == 2 && !startMove || stoppedArea == 1 && !startMove)
+        if (stoppedArea == 3 && GetComponent<SpriteRenderer>().sortingOrder != 45)
         {
-            x = -1;
-            y = 0;
+            GetComponent<SpriteRenderer>().sortingOrder = 45;
         }
-
-        if (stoppedArea == 4 && !startMove || stoppedArea == 5 && !startMove || stoppedArea == 0 && !startMove || stoppedArea == 3 && !startMove)
-        {
-            x = 0;
-            y = -1;
-        }*/
-        /*
-        if (stoppedArea == 3 && !sayPickBow.activeSelf)
-        {
-            float r = Vector2.Distance(transform.position, area3Stop.position);
-
-            if (r > 0)
+            /*
+            if (stoppedArea == 2 && !startMove || stoppedArea == 1 && !startMove)
             {
-                transform.position = Vector2.MoveTowards(transform.position, area3Stop.position, vel * Time.deltaTime);
-                SetFacingToPath(area3Stop.position);
-                anim.SetBool("isWalking", true);
+                x = -1;
+                y = 0;
             }
-            else
+
+            if (stoppedArea == 4 && !startMove || stoppedArea == 5 && !startMove || stoppedArea == 0 && !startMove || stoppedArea == 3 && !startMove)
             {
-                anim.SetBool("isWalking", false);
-                sayPickBow.SetActive(true);
                 x = 0;
                 y = -1;
+            }*/
+            /*
+            if (stoppedArea == 3 && !sayPickBow.activeSelf)
+            {
+                float r = Vector2.Distance(transform.position, area3Stop.position);
+
+                if (r > 0)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, area3Stop.position, vel * Time.deltaTime);
+                    SetFacingToPath(area3Stop.position);
+                    anim.SetBool("isWalking", true);
+                }
+                else
+                {
+                    anim.SetBool("isWalking", false);
+                    sayPickBow.SetActive(true);
+                    x = 0;
+                    y = -1;
+                }
+
             }
+            */
 
-        }
-        */
-
-        if(index == positions.Length && startMove)
+            if (index == positions.Length && startMove)
         {
             startMove = false;
             if(point0.position != area1_1WayP[0].position && point0.position != area2_1WayP[0].position)
