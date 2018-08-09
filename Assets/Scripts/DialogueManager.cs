@@ -25,10 +25,12 @@ public class DialogueManager : MonoBehaviour {
     public string[] facesNames;
     public bool speak, smile;
     private TutorialManager tutorial;
+    bool firstDialogue;
 	// Use this for initialization
 	void Start () {
         tutorial = GetComponent<TutorialManager>();
         tutorialBox.SetActive(false);
+        firstDialogue = true;
 	}
 	
 	// Update is called once per frame
@@ -137,6 +139,12 @@ public class DialogueManager : MonoBehaviour {
     {
         if (!bossDialogue)
         {
+            if(firstDialogue)
+            {
+                StartTutorialDialogue(tutorial.tutorialDialogues[13]);
+                firstDialogue = false;
+            }
+
             GetComponent<TutorialManager>().canWalk = true;
             //tutorial.canWalk = tutorial.lastCanWalk;
             tutorial.canRun = tutorial.lastCanRun;

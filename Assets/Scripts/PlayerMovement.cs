@@ -458,7 +458,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     colGOList[i].GetComponent<EnemyHealth>().TakeDamage(dmg["Close"]);
 
-                    if (closeAttackIndex == attackMaxIndex && colGOList[i].GetComponent<EnemyHealth>().curHealth > dmg["Close"] && colGOList[i].GetComponent<EnemyAI>() != null)
+                    if (closeAttackIndex == attackMaxIndex && colGOList[i].GetComponent<EnemyHealth>().curHealth > dmg["Close"]
+                        && colGOList[i].GetComponent<EnemyAI>() != null && colGOList[i].GetComponent<EnemyHealth>().isBoss == false)
                         colGOList[i].GetComponent<EnemyAI>().Knockback(rayV.x, rayV.y);
                 }
 

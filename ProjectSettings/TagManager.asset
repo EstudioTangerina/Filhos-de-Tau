@@ -23,6 +23,7 @@ TagManager:
   - AddLife
   - PausePanel
   - Ramp
+  - Tree
   layers:
   - Default
   - TransparentFX

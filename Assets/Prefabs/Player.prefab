@@ -588,6 +588,8 @@ MonoBehaviour:
   kncokbackTimer: 0
   colGOList: []
   losePanel: {fileID: 0}
+  upRamp: 0
+  scale: {x: 0, y: 0, z: 0}
 --- !u!114 &114361206645174460
 MonoBehaviour:
   m_ObjectHideFlags: 1

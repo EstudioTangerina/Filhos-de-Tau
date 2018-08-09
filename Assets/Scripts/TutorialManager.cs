@@ -47,7 +47,6 @@ public class TutorialManager : MonoBehaviour {
     public Dialogue[] dialogues;
     public Dialogue[] tutorialDialogues;
     private DialogueManager dManager;
-
     [HideInInspector]
     public bool lastCanWalk;
     [HideInInspector]
@@ -75,7 +74,8 @@ public class TutorialManager : MonoBehaviour {
 
     public GameObject playerShaddow;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         dManager = GetComponent<DialogueManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         inventoryUI = GameObject.FindObjectOfType<InventoryUI>();
@@ -118,12 +118,20 @@ public class TutorialManager : MonoBehaviour {
         lastCanChangeWeapon = canChangeWeapon;
         lastCanOpenInv = canOpenInv;
 
-        manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
-    }
+        if (GameObject.Find("MenuManager") != null)
+        {
+            manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
 
+            tutorialDialogues[13].senteces[0] = "Você pode andar usando as teclas: \n" + manager.buttons[0].ToString() + ", " + manager.buttons[2].ToString() + ", " + manager.buttons[1].ToString() + ", " + manager.buttons[3].ToString() + ".\nUse a tecla " + manager.buttons[4].ToString() + " para correr.";
+            tutorialDialogues[0].senteces[1] = "Agora segure firme, aperte o " + manager.buttons[6].ToString() + " para pegar o item.";
+            tutorialDialogues[0].senteces[3] = "É só apertar o " + manager.buttons[5].ToString() + " para atacar.";
+            tutorialDialogues[7].senteces[1] = "Quero que você use sua coragem para atravessar eles com seu Dash, é só apertar " + manager.buttons[7].ToString() + ".";
+
+        }
+    }
     private void Update()
     {
-        if (manager == null)
+        if (manager == null && GameObject.Find("MenuManager") != null)
             manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
 
         if (volume.value > -10)
@@ -244,8 +252,8 @@ public class TutorialManager : MonoBehaviour {
                     hud.SetActive(true);
                     dManager.bossDialogueFinished = false;
                     FindObjectOfType<GuideBoss>().startMove = true;
-                    winPanel.SetActive(true);
-                    Time.timeScale = 0;
+                    //winPanel.SetActive(true);
+                    //Time.timeScale = 0;
                 }
             }
 
@@ -336,23 +344,27 @@ public class TutorialManager : MonoBehaviour {
     }
 
     public void Pause()
-    {
-        manager.Pause();
+    { 
+       if (manager != null) 
+            manager.Pause();
     }
 
     public void Resume()
     {
-        manager.Resume();
+        if (manager != null)
+            manager.Resume();
     }
 
     public void Restart()
     {
-        manager.Restart();
+        if (manager != null)
+            manager.Restart();
     }
 
     public void MainMenu()
     {
-        manager.MainMenu();
+        if (manager != null)
+            manager.MainMenu();
     }
 
     public void SetVolume(float v)

@@ -101,7 +101,7 @@ public class GuideBoss : MonoBehaviour
             pontoParado = Random.Range(0, 3);
             timer = 0;
             ataque = true;
-            limite = Random.Range(580, 1090);
+            limite = Random.Range(580, 890);
         }
 
         if(ataque == true)
@@ -116,15 +116,23 @@ public class GuideBoss : MonoBehaviour
             tempoParado++;
             anim.SetInteger("lado", pontoParado);
 
-            if (tempoParado == 150)
+            if (tempoParado == 100)
             {
                
                 if (atacou == false)
                 {
-                    Ataque(Random.Range(3, 4));
+                    Ataque(Random.Range(1, 4));
                 }
             }
-            if (tempoParado >= 900)
+            if (tempoParado == 400)
+            {
+
+                if (atacou == false)
+                {
+                    Ataque(Random.Range(1, 4));
+                }
+            }
+            if (tempoParado >= 700)
             {
                 tempoParado = 0;
                 ataque = false;
@@ -220,7 +228,7 @@ public class GuideBoss : MonoBehaviour
             }*/
             Instantiate(peixe);
             
-            atacou = true;
+            //atacou = true;
         }
         if (x == 2)
         {

@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField]
     private GameObject healthBarCanvas;
 
+    public bool isBoss;
     private float calcHealth;
 
     public float maxDistInv;
@@ -45,6 +46,9 @@ public class EnemyHealth : MonoBehaviour {
             healthBar.transform.localScale = new Vector3(calcHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
             healthBarCanvas.GetComponent<Canvas>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
         }
+
+        if(isBoss)
+            healthBar.transform.localScale = new Vector3(calcHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -119,6 +123,11 @@ public class EnemyHealth : MonoBehaviour {
 
             attacked = true;
             GetComponent<Animator>().SetBool("Hurt", true);
+        }
+
+        else if(isBoss)
+        {
+
         }
 
         else

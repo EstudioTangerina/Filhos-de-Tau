@@ -14,6 +14,7 @@ public class AddArrow : MonoBehaviour {
     public int numPoints = 10;
     public float vel = 10;
     public Vector3[] positions = new Vector3[10];
+    public GameObject outside;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
@@ -45,7 +46,7 @@ public class AddArrow : MonoBehaviour {
         if (index < positions.Length)
         {
             float range = Vector2.Distance(transform.position, positions[index]);
-
+            outside.SetActive(false);
             if (range > 0.1f)
             {
                 transform.position = Vector2.MoveTowards(transform.position, positions[index], vel * Time.deltaTime);
@@ -64,6 +65,7 @@ public class AddArrow : MonoBehaviour {
             GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             transform.GetChild(0).gameObject.SetActive(true);
             GetComponent<Collider2D>().enabled = true;
+            outside.SetActive(true);
             transform.rotation = new Quaternion(0, 0, 0, 0);
         }
     }

@@ -6,10 +6,11 @@ public class AxeRock : MonoBehaviour {
     private bool collided;
     private bool col;
     public Sprite broken;
+    public SpriteRenderer outside;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        outside.gameObject.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,10 +23,16 @@ public class AxeRock : MonoBehaviour {
         if(col && collided)
         {
             if (GameObject.FindGameObjectWithTag("Player").transform.position.y > transform.position.y)
+            {
                 GetComponent<SpriteRenderer>().sortingOrder = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().sortingOrder + 1;
+                outside.sortingOrder = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().sortingOrder + 1;
+            }
 
             else
+            {
                 GetComponent<SpriteRenderer>().sortingOrder = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().sortingOrder - 1;
+                outside.sortingOrder = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().sortingOrder - 1;
+            }
         }
 
         if(!collided && col)
@@ -40,6 +47,7 @@ public class AxeRock : MonoBehaviour {
     {
         if (collision.gameObject.tag == "FirstItens")
         {
+            outside.gameObject.SetActive(true);
             GetComponent<SpriteRenderer>().sortingOrder = -21;
             collided = true;
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -55,6 +63,7 @@ public class AxeRock : MonoBehaviour {
     {
         if (collision.gameObject.tag == "FirstItens")
         {
+            outside.gameObject.SetActive(false);
             collided = false;
             GetComponent<SpriteRenderer>().sortingOrder = -23;
         }
