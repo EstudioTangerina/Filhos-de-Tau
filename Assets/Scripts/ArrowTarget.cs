@@ -25,24 +25,30 @@ public class ArrowTarget : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Arrow")
         {
+            if(!hit)
+                GetComponent<AudioSource>().Play();
+
             hits++;
             hit = true;
 
             if (collision.gameObject.transform.rotation.eulerAngles.z >= 0 && collision.gameObject.transform.rotation.eulerAngles.z < 45)
             {
                 target.GetComponent<SpriteRenderer>().sprite = wasHitL;
+                target.GetComponent<Animator>().enabled = true;
                 shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
             }
 
             else if (collision.gameObject.transform.rotation.eulerAngles.z > 135 && collision.gameObject.transform.rotation.eulerAngles.z <= 179)
             {
                 target.GetComponent<SpriteRenderer>().sprite = wasHitR;
+                target.GetComponent<Animator>().enabled = true;
                 shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
             }
 
             else
             {
                 target.GetComponent<SpriteRenderer>().sprite = wasHit;
+                target.GetComponent<Animator>().enabled = true;
                 shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
             }
             Destroy(collision.gameObject);

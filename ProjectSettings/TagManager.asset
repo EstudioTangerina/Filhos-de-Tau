@@ -24,6 +24,10 @@ TagManager:
   - PausePanel
   - Ramp
   - Tree
+  - Hole
+  - Rock
+  - BossBattleCol
+  - MouseScroll
   layers:
   - Default
   - TransparentFX
@@ -37,9 +41,9 @@ TagManager:
   - ArrowTarget
   - Obstacles
   - PlayerRoll
-  - 
-  - 
-  - 
+  - Holes
+  - Wall
+  - Boss
   - 
   - 
   - 

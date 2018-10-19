@@ -8,7 +8,7 @@ public class IAtiroAgua : MonoBehaviour {
     public bool direita;
     public bool cima;
     public bool baixo;
-    public float velocidade;
+    public float velocidade = 3;
 
     public GameObject Player;
 
@@ -21,7 +21,6 @@ public class IAtiroAgua : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        velocidade = 3;
         if (cima == true)
         {
             transform.Translate(Vector3.up * velocidade * Time.deltaTime);
@@ -44,8 +43,10 @@ public class IAtiroAgua : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            Player.GetComponent<PlayerHealth>().TakeDamage(15);
-           
+            Vector2 pos = new Vector2(transform.position.x - Player.transform.position.x, transform.position.y - Player.transform.position.y);
+            Player.GetComponent<PlayerHealth>().TakeDamage(20);
+            Player.GetComponent<PlayerHealth>().Hurt(pos.x, pos.y);
+            Destroy(gameObject);
         }
     }
 }

@@ -33,7 +33,7 @@ public class Area3 : MonoBehaviour {
         }
 
 
-		if(targets[0].hit && targets[1].hit && targets[2].hit && targets[3].hit && targets[4].hit && targets[5].hit && !tutorial.partCompleted[3])
+		if(targets[0].hit && targets[1].hit && targets[2].hit && targets[3].hit && targets[4].hit && !tutorial.partCompleted[3])
         {
             guide.ChangeWaypoints(0);
             tutorial.partCompleted[3] = true;

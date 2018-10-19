@@ -13,6 +13,7 @@ public class Area1 : MonoBehaviour {
     private float timer;
     private bool startTimer;
     public AreaReached area1;
+    public AudioSource throwSound;
 	// Use this for initialization
 	void Start () {
         guide = FindObjectOfType<GuideAi>();
@@ -32,8 +33,11 @@ public class Area1 : MonoBehaviour {
         {
             timer += Time.deltaTime;
 
-            if(timer < 0.2f)
+            if (timer < 0.2f)
+            {
                 GameObject.FindGameObjectWithTag("NegroD'agua").GetComponent<Animator>().SetBool("Throw", true);
+                throwSound.Play();
+            }
 
             if (timer > 0.3f)
             {

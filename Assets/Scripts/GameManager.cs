@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public SaveGame save;
 
     public List<KeyCode> buttons = new List<KeyCode>();
+    public List<Sprite> buttonsImages = new List<Sprite>();
+
     public MenuManager menu;
 
     public bool haveSave;
@@ -21,7 +23,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         menu = GameObject.FindObjectOfType<MenuManager>();
-        //menu.buttons = buttons;
 
         if (GameObject.FindObjectsOfType<GameManager>().Length > 1)
             Destroy(gameObject);
@@ -48,7 +49,6 @@ public class GameManager : MonoBehaviour
         else
             haveSave = false;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -58,12 +58,19 @@ public class GameManager : MonoBehaviour
         if (menu == null && SceneManager.GetActiveScene().name == "Menu")
         {
             menu = GameObject.FindObjectOfType<MenuManager>();
-            //menu.buttons = buttons;
             menu.RefreshButtonNames();
         }
 
         if (menu != null)
+        {
             buttons = menu.buttons;
+
+            for(int s = 0; s < menu.buttonsImages.Length; s++)
+            {
+                buttonsImages[s] = menu.buttonsImages[s];
+            }
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Menu")
         {
@@ -78,33 +85,32 @@ public class GameManager : MonoBehaviour
                 GameObject.Find("ButtonBack").GetComponent<AudioSource>().Play();
             }
         }
-        /*
-        if (Input.GetKeyDown(KeyCode.R) && player != null)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }*/
     }
 
     public void Pause()
     {
+        AudioListener.pause = true;
         Time.timeScale = 0;
         FindObjectOfType<TutorialManager>().pausePanel.SetActive(true);
     }
 
     public void Resume()
     {
+        AudioListener.pause = false;
         Time.timeScale = 1;
         FindObjectOfType<TutorialManager>().pausePanel.SetActive(false);
     }
 
     public void Restart()
     {
+        AudioListener.pause = false;
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()
     {
+        AudioListener.pause = false;
         Time.timeScale = 1;
         SaveState(false);
         player = null;
@@ -118,7 +124,7 @@ public class GameManager : MonoBehaviour
         if (start == true) // Reset variables
         {
             player.GetComponent<PlayerMovement>().ammo = 0;
-            player.transform.position = new Vector3(-49.34f, 30.5f, 0);
+            player.transform.position = new Vector3(-48.95f, 30.2f, 0);
             GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(-49.34f, 31.14f, -10);
             player.GetComponent<PlayerHealth>().curHealth = player.GetComponent<PlayerHealth>().maxHealth;
             player.GetComponent<EnergyBar>().curEnergy = player.GetComponent<EnergyBar>().maxEnergy;
@@ -137,7 +143,6 @@ public class GameManager : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene("Main");
-        StartCoroutine(WaitLoadScene(false));
     }
 
     public void LoadState()
@@ -149,28 +154,20 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Main");
-        StartCoroutine(WaitLoadScene(true));
+        StartCoroutine(LoadAsynchronously(1));
     }
 
-    IEnumerator WaitLoadScene(bool newG)
+    IEnumerator LoadAsynchronously(int sceneIndex)
     {
-        AsyncOperation asyncLoadLevel;
-        asyncLoadLevel = SceneManager.LoadSceneAsync("Main", LoadSceneMode.Single);
-        while (!asyncLoadLevel.isDone)
-        {
-            yield return null;
-        }
-        if (newG == true) // Reset
-            SaveState(true);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
-        if (newG == false) // Load
+        menu.loadingBar.SetActive(true);
+        while (!operation.isDone)
         {
-            player.GetComponent<PlayerMovement>().ammo = save.ammo;
-            player.transform.position = save.playerPos;
-            player.GetComponent<PlayerHealth>().curHealth = save.playerHealth;
-            player.GetComponent<EnergyBar>().curEnergy = save.playerEnergy;
-            GameObject.FindGameObjectWithTag("MainCamera").transform.position = save.camPos;
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            menu.load.fillAmount = progress;
+            menu.percent.text = Mathf.RoundToInt(progress * 100).ToString() + "%";
+            yield return null;
         }
     }
 }

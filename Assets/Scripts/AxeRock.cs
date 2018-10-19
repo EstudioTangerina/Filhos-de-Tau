@@ -16,6 +16,7 @@ public class AxeRock : MonoBehaviour {
 	void Update () {
         if (collided && !col)
         {
+            GetComponent<AudioSource>().Play();
             GetComponent<Animator>().enabled = true;
             col = true;
         }

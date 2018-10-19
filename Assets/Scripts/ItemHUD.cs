@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class ItemHUD : MonoBehaviour {
     [HideInInspector]
@@ -15,7 +16,7 @@ public class ItemHUD : MonoBehaviour {
     private List<Sprite> itemImg = new List<Sprite>();
 
     [SerializeField]
-    private Text itenAmount;
+    private TextMeshProUGUI itenAmount;
 
     [SerializeField]
     private GameObject[] curItem;
@@ -54,7 +55,7 @@ public class ItemHUD : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        itenAmount.text = "X" + plMove.ammo;
+        itenAmount.text = "x" + plMove.ammo;
 
         if (FindObjectOfType<TutorialManager>().canAttack)
         {
@@ -62,15 +63,24 @@ public class ItemHUD : MonoBehaviour {
 
             if (canChangeWeapon && Time.timeScale > 0)
             {
-                if (Input.GetAxis("Mouse ScrollWheel") > 0 && curWeapon < curItem.Length - 1 || Input.GetKeyDown(KeyCode.Alpha2) && curWeapon < curItem.Length - 1)
+                if (Input.GetAxis("Mouse ScrollWheel") > 0 )
                 {
-                    curWeapon += 1;
+                    if (curWeapon < curItem.Length - 1)
+                        curWeapon += 1;
+
+                    else
+                        curWeapon = 0;
+
                     GetComponent<Animator>().runtimeAnimatorController = animStates[curWeapon];
                 }
 
-                else if (Input.GetAxis("Mouse ScrollWheel") < 0 && curWeapon > 0 || Input.GetKeyDown(KeyCode.Alpha1) && curWeapon > 0)
+                else if (Input.GetAxis("Mouse ScrollWheel") < 0)
                 {
-                    curWeapon -= 1;
+                    if (curWeapon > 0)
+                        curWeapon -= 1;
+
+                    else
+                        curWeapon = curItem.Length - 1;
                     GetComponent<Animator>().runtimeAnimatorController = animStates[curWeapon];
                 }
             }

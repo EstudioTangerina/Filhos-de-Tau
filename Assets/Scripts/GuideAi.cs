@@ -77,11 +77,18 @@ public class GuideAi : MonoBehaviour {
         }
 
         if (startMove)
+        {
             Move();
 
-        else
-            SetFacingToPath(player.transform.position);
+            /*if (GetComponent<AudioSource>().isPlaying == false)
+                GetComponent<AudioSource>().Play();*/
+        }
 
+        else
+        {
+            SetFacingToPath(player.transform.position);
+           // GetComponent<AudioSource>().Stop();
+        }
         if (start)
         {
             float r = Vector2.Distance(transform.position, startPoint.position);
@@ -90,6 +97,9 @@ public class GuideAi : MonoBehaviour {
                 transform.position = Vector2.MoveTowards(transform.position, startPoint.position, vel * 0.5f * Time.deltaTime);
                 SetFacingToPath(startPoint.position);
                 anim.SetBool("isWalking", true);
+
+                /*if (GetComponent<AudioSource>().isPlaying == false)
+                    GetComponent<AudioSource>().Play();*/
             }
 
             else
@@ -103,6 +113,7 @@ public class GuideAi : MonoBehaviour {
                 player.GetComponent<Animator>().SetFloat("x", 0);
                 player.GetComponent<Animator>().SetFloat("y", 1);
                 FindObjectOfType<TutorialManager>().StartDialogue(0);
+                //GetComponent<AudioSource>().Stop();
                 start = false;
             }
         }

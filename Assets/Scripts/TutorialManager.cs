@@ -73,6 +73,11 @@ public class TutorialManager : MonoBehaviour {
     public GameObject winPanel;
 
     public GameObject playerShaddow;
+
+    public GameObject bossHealthBar;
+
+    public GameObject[] rocks;
+    public GameObject[] rocksShadows;
     // Use this for initialization
     void Start()
     {
@@ -122,10 +127,10 @@ public class TutorialManager : MonoBehaviour {
         {
             manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
 
-            tutorialDialogues[13].senteces[0] = "Você pode andar usando as teclas: \n" + manager.buttons[0].ToString() + ", " + manager.buttons[2].ToString() + ", " + manager.buttons[1].ToString() + ", " + manager.buttons[3].ToString() + ".\nUse a tecla " + manager.buttons[4].ToString() + " para correr.";
-            tutorialDialogues[0].senteces[1] = "Agora segure firme, aperte o " + manager.buttons[6].ToString() + " para pegar o item.";
-            tutorialDialogues[0].senteces[3] = "É só apertar o " + manager.buttons[5].ToString() + " para atacar.";
-            tutorialDialogues[7].senteces[1] = "Quero que você use sua coragem para atravessar eles com seu Dash, é só apertar " + manager.buttons[7].ToString() + ".";
+            //tutorialDialogues[13].senteces[0] = "Venha andando até mim";
+           // tutorialDialogues[0].senteces[1] = "Se aproxime e pegue o machado.";
+           // tutorialDialogues[0].senteces[3] = "É só apertar o " + manager.buttons[5].ToString() + " para atacar.";
+           // tutorialDialogues[7].senteces[1] = "Quero que você use sua coragem para atravessar eles com seu Dash.";
 
         }
     }
@@ -206,7 +211,14 @@ public class TutorialManager : MonoBehaviour {
                 rampTop.GetComponent<SpriteRenderer>().sortingLayerName = "Objects";
                 rampTop.GetComponent<SpriteRenderer>().sortingOrder = -101;
                 ramp.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
-                ramp.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                ramp.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                for (int i = 0; i < rocks.Length; i++)
+                {
+                    rocks[i].GetComponent<SpriteRenderer>().sortingLayerName = "Objects";
+                    rocks[i].GetComponent<SpriteRenderer>().sortingOrder = -90;
+                    rocksShadows[i].GetComponent<SpriteRenderer>().sortingLayerName = "Objects";
+                    rocksShadows[i].GetComponent<SpriteRenderer>().sortingOrder = -98;
+                }
             }
                 if (r == 0 && !bossArenaCol.activeSelf)
             {
@@ -252,8 +264,9 @@ public class TutorialManager : MonoBehaviour {
                     hud.SetActive(true);
                     dManager.bossDialogueFinished = false;
                     FindObjectOfType<GuideBoss>().startMove = true;
-                    //winPanel.SetActive(true);
-                    //Time.timeScale = 0;
+                    bossHealthBar.SetActive(true);
+                   /* winPanel.SetActive(true);
+                    Time.timeScale = 0;*/
                 }
             }
 
@@ -345,7 +358,7 @@ public class TutorialManager : MonoBehaviour {
 
     public void Pause()
     { 
-       if (manager != null) 
+       if (manager != null && FindObjectOfType<GuideBoss>().beated == false) 
             manager.Pause();
     }
 
@@ -375,5 +388,13 @@ public class TutorialManager : MonoBehaviour {
     public void SetMusicVolume(float v)
     {
         musicMixer.SetFloat("MusicVolume", v);
+    }
+
+    public void FinishTutorial()
+    {
+        Debug.Log("Tutorial Finished");
+        winPanel.SetActive(true);
+        AudioListener.pause = true;
+        Time.timeScale = 0;
     }
 }

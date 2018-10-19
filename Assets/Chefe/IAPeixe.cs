@@ -11,6 +11,7 @@ public class IAPeixe : MonoBehaviour {
     public AnimationClip hurtAnim;
 	// Use this for initialization
 	void Start () {
+		dmg = 20;
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
@@ -33,13 +34,13 @@ public class IAPeixe : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        col = true;
-
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && col == false)
         {
+            col = true;
+
             Vector2 pos = new Vector2(transform.position.x - player.gameObject.transform.position.x, transform.position.y - player.gameObject.transform.position.y);
             player.GetComponent<PlayerHealth>().TakeDamage(dmg);
-
+            player.GetComponent<PlayerHealth>().Hurt(pos.x, pos.y);
             if (player.GetComponent<PlayerHealth>().curHealth > dmg)
                 player.GetComponent<PlayerMovement>().Knockback(-pos.x, -pos.y);
 

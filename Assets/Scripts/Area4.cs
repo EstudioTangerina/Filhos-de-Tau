@@ -19,6 +19,8 @@ public class Area4 : MonoBehaviour {
     public bool zoomOutMid;
     public GameObject guide;
     public AreaReached area4;
+    public bool startDialogue;
+    public float timer3;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -31,6 +33,7 @@ public class Area4 : MonoBehaviour {
             tutorial.StartTutorialDialogue(7);
             tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1f;
             tutorial.canRoll = true;
+            player.gameObject.GetComponent<PlayerMovement>().IntructionButton(7);
             area4.reached = false;
         }
 
@@ -57,11 +60,23 @@ public class Area4 : MonoBehaviour {
             tutorial.GetComponent<DialogueManager>().area4DialogueFinished = false;
         }
 
-        if (GameObject.FindObjectOfType<EnemyAI>() == null && startWave && !tutorial.partCompleted[4])
+        if (GameObject.FindObjectOfType<EnemyAI>() == null && startWave && !startDialogue)
         {
             tutorial.StartTutorialDialogue(11);
-            tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1f;
-            tutorial.partCompleted[4] = true;
+            tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1.7f;
+            startDialogue = true;
+        }
+
+
+        if(startDialogue && !tutorial.partCompleted[4])
+        {
+            timer3 += Time.deltaTime;
+
+            if(timer3 > 5)
+            {
+                tutorial.partCompleted[4] = true;
+                timer3 = 0;
+            }
         }
 
         if (three && !startWave)

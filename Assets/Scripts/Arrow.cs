@@ -31,6 +31,7 @@ public class Arrow : MonoBehaviour {
             {
                 if (collision.gameObject.transform.position.y < transform.position.y + 0.5f)
                 {
+                    collision.GetComponent<EnemyHealth>().hitByArrow = true;
                     collision.GetComponent<EnemyHealth>().TakeDamage(dmg);
                     controle = false;
                     Destroy(gameObject, 0.05f);
@@ -38,6 +39,7 @@ public class Arrow : MonoBehaviour {
             }
             else
             {
+                collision.GetComponent<EnemyHealth>().hitByArrow = true;
                 collision.GetComponent<EnemyHealth>().TakeDamage(dmg);
                 controle = false;
                 Destroy(gameObject, 0.05f);

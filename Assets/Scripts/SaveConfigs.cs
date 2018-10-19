@@ -33,7 +33,15 @@ public class SaveConfigs : MonoBehaviour {
         for(int i = 0; i < buttons.Length; i++)
         {
             if (PlayerPrefs.HasKey(buttons[i]))
+            {
                 GetComponent<MenuManager>().buttons[i] = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(buttons[i]));
+
+                foreach(Sprite s in GetComponent<MenuManager>().allKeyImages)
+                {
+                    if (s.name == GetComponent<MenuManager>().buttons[i].ToString())
+                        GetComponent<MenuManager>().buttonsImages[i] = s;
+                }
+            }
         }
     }
 

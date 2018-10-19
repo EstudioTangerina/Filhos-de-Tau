@@ -29,9 +29,13 @@ public class EnemyAI : MonoBehaviour
     public float knockbackDirDist;
     public bool canReceiveKnockback;
     public float kncokbackTimer;
+
+    public AudioSource[] songs;
+    public bool canScream;
     // Use this for initialization
     void Start()
     {
+        canScream = true;
         canReceiveKnockback = true;
         anim = GetComponent<Animator>();
         transform.position = spawn.position;
@@ -53,7 +57,10 @@ public class EnemyAI : MonoBehaviour
             isDead = anim.GetBool("Died");
 
             if (Vector2.Distance(transform.position, target.position) > maxDist)
+            {
+                canScream = true;
                 isWalking = false;
+            }
 
             if (range <= minDist && target == spawn)
             {
@@ -81,6 +88,8 @@ public class EnemyAI : MonoBehaviour
 
                     colGO.GetComponent<PlayerHealth>().TakeDamage(dmg);
                     colGO.GetComponent<PlayerHealth>().Hurt(pos.x, pos.y);
+                    songs[0].Play();
+
                 }
                 isAttacking = false;
                 isWalking = false;

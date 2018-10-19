@@ -23,7 +23,7 @@ public class Area2 : MonoBehaviour {
             order[i] = validChoices[x];
             validChoices.RemoveAt(x);
         }
-        tutorial.tutorialDialogues[2].senteces[0] = "Agora bata nos bonecos na seguinte ordem " + colors[order[0]] + ", " + colors[order[1]] + ", " + colors[order[2]] + ", " + colors[order[3]] + ", " + colors[order[4]] + ".";
+        tutorial.tutorialDialogues[2].senteces[0] = "Agora bata nos bonecos na seguinte ordem " + colors[order[0]] + ", " + colors[order[1]] + ", " + colors[order[2]] + ", " + colors[order[3]] + ".";
 	}
 	
 	// Update is called once per frame
@@ -38,7 +38,7 @@ public class Area2 : MonoBehaviour {
 
         if (actived)
         {
-            if (index != 5)
+            if (index != ragdolls.Length)
             {
                 foreach (RagDool r in ragdolls)
                 {
@@ -50,12 +50,12 @@ public class Area2 : MonoBehaviour {
                     }
                 }
             }
-            if (index >= 0 && index != 5)
+            if (index >= 0 && index != ragdolls.Length)
             {
                 if (!ragdolls[order[index]].controle)
                 {
                     index = -1;
-                    tutorial.tutorialDialogues[2].senteces[0] = " Essa não foi a ordem que eu disse, tenta isso ai de novo, a ordem é essa: " + colors[order[0]] + ", " + colors[order[1]] + ", " + colors[order[2]] + ", " + colors[order[3]] + ", " + colors[order[4]] + ".";
+                    tutorial.tutorialDialogues[2].senteces[0] = " Essa não foi a ordem que eu disse, tenta isso ai de novo, a ordem é essa: " + colors[order[0]] + ", " + colors[order[1]] + ", " + colors[order[2]] + ", " + colors[order[3]] + ".";
                     tutorial.StartTutorialDialogue(2);
                     foreach (RagDool r in ragdolls)
                     {

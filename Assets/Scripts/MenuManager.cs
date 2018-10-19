@@ -31,6 +31,10 @@ public class MenuManager : MonoBehaviour {
     public Sprite[] musState = new Sprite[4];
 
     public List<KeyCode> buttons = new List<KeyCode>();
+
+    public Object[] allKeyImages;
+    public Sprite[] buttonsImages;
+
     public List<KeyCode> defaultButtons = new List<KeyCode>();
     public Button[] keyButtons;
     public TextMeshProUGUI[] keyButtonsText;
@@ -48,6 +52,10 @@ public class MenuManager : MonoBehaviour {
     public GameObject settingsMenu;
 
     public Button back, reset;
+
+    public GameObject loadingBar;
+    public Image load;
+    public TextMeshProUGUI percent;
     // Use this for initialization
     private void Awake()
     {
@@ -55,6 +63,8 @@ public class MenuManager : MonoBehaviour {
     }
 
     void Start () {
+
+        allKeyImages = Resources.LoadAll("Buttons/Keyboard & Mouse/Dark", typeof(Sprite));
 
         float vol;
         bool result = audioMixer.GetFloat("volume", out vol);
@@ -160,6 +170,12 @@ public class MenuManager : MonoBehaviour {
                             keyButtonsText[i].fontSize = 40;
                             keyButtonsText[i].text = key.ToString();
 
+                            foreach(Sprite a in allKeyImages)
+                            {
+                                if(key.ToString() == a.name)
+                                    buttonsImages[i] = a;
+                            }
+
                             foreach (Button b in keyButtons)
                                 b.interactable = true;
 
@@ -192,6 +208,12 @@ public class MenuManager : MonoBehaviour {
         for (int i = 0; i < buttons.Count; i++)
         {
             buttons[i] = defaultButtons[i];
+
+            foreach (Sprite a in allKeyImages)
+            {
+                if (buttons[i].ToString() == a.name)
+                    buttonsImages[i] = a;
+            }
         }
         RefreshButtonNames();
         GetComponent<SaveConfigs>().SetNewControls();
@@ -230,6 +252,15 @@ public class MenuManager : MonoBehaviour {
     public void SetFullscreen (bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+
+        if (Screen.fullScreen)
+        {
+            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+        }
+        else
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+        }
     }
 
     public void SetResolution(int resolutionIndex)
@@ -238,6 +269,11 @@ public class MenuManager : MonoBehaviour {
         var height = int.Parse(resolutionsDropDown.options[resolutionIndex].text.Split(' ')[2]);
 
         Screen.SetResolution(width, height, Screen.fullScreen);
+    }
+
+    public void OpenPage()
+    {
+        Application.OpenURL("https://www.facebook.com/navegames1/");
     }
 
     public void ChangeButton(int buttonIndex)

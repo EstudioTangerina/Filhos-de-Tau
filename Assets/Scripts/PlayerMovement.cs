@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerMovement : MonoBehaviour
@@ -38,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     public float objectiveDist;
 
     public bool isWalking;
+
+    public bool soundControl = true;
     #endregion
 
     #region Private Variables
@@ -129,10 +132,22 @@ public class PlayerMovement : MonoBehaviour
 	
 	public bool upRamp;
 	public Vector3 scale;
+
+    public AudioSource[] songs;
+
+    public GameObject[] moveButton = new GameObject[4];
+    public GameObject allButton;
+    public Sprite[] buttonSprites = new Sprite[10];
+    public KeyCode[] buttons = new KeyCode[10];
+    public KeyCode waitingButton;
+    public bool waitingB;
+    public bool waitingB2;
+    public float waitingTimer = 1.5f;
     #region Main Functions
     // Use this for initialization
     void Start()
     {
+
 		scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
         canReceiveKnockback = true;
         closeAttackIndex = -1;
@@ -153,6 +168,20 @@ public class PlayerMovement : MonoBehaviour
             pursuitButton = manager.buttons[6];
             rollButton = manager.buttons[7];
             magicButton = manager.buttons[9];
+
+            buttons[0] = upButton;
+            buttons[1] = downButton;
+            buttons[2] = leftButton;
+            buttons[3] = rightButton;
+            buttons[5] = attackButton;
+            buttons[6] = pursuitButton;
+            buttons[7] = rollButton;
+            buttons[9] = magicButton;
+
+            for(int b = 0; b < manager.buttonsImages.Count; b++)
+            {
+                buttonSprites[b] = manager.buttonsImages[b];
+            }
         }
         /////////// SET VARIABLES OF SOME ACTIONS ///////////
         //ammo = maxAmmo;
@@ -173,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("y", -1);
 
         ////////////// SET THE ATTACKS DAMAGE /////////////////
-        dmg.Add("Close", 10); // Close Range Attack DMG
+        dmg.Add("Close", 15); // Close Range Attack DMG
         dmg.Add("Range", 25); // Ranged Attack DMG
         dmg.Add("Magic", 50); // Magic Attack DMG
 
@@ -191,6 +220,7 @@ public class PlayerMovement : MonoBehaviour
 
             else if(loseTimer > 2 && !losePanel.activeSelf)
             {
+                AudioListener.pause = true;
                 losePanel.SetActive(true);
                 Time.timeScale = 0;
             }
@@ -242,8 +272,31 @@ public class PlayerMovement : MonoBehaviour
                 if (startTimer >= 7f)
                 {
                     doubt[2].SetActive(true);
+                    songs[10].Play();
                     onStart = false;
                 }
+            }
+        }
+
+        if(waitingB)
+        {
+            if(waitingTimer > 0 && waitingTimer < 10)
+                waitingTimer -= Time.deltaTime;
+
+            if(Input.GetKeyDown(waitingButton))
+            {
+                waitingB2 = true;
+            }
+
+            if(waitingTimer <= 0 && waitingB2)
+            {
+                allButton.SetActive(false);
+                moveButton[0].SetActive(false);
+                moveButton[1].SetActive(false);
+                moveButton[2].SetActive(false);
+                moveButton[3].SetActive(false);
+                waitingTimer = 1.5f;
+                waitingB = false;
             }
         }
 
@@ -262,6 +315,8 @@ public class PlayerMovement : MonoBehaviour
         #region Read The Inputs
         if (item != null && Input.GetKeyDown(pursuitButton))
         {
+            waitingB2 = false;
+            waitingTimer = 1.5f;
             pickingUp = true;
             anim.SetBool("isWalking", false);
             StartCoroutine("PickUPWait");
@@ -337,7 +392,10 @@ public class PlayerMovement : MonoBehaviour
             //Read Roll Input
             if (Input.GetKeyDown(rollButton) && !isMagicActive && !isAiming &&
                 !isAttacking && !roll && !die && isWalking && energy >= rollEnergyConsum && anim.GetBool("PickUp") == false && canRoll)
+            {
+                songs[8].Play();
                 roll = true;
+            }
 
             //Read Attack Input
             if (Input.GetKeyDown(attackButton) && !isMagicActive && !isAiming && !roll &&
@@ -426,6 +484,7 @@ public class PlayerMovement : MonoBehaviour
             if (run)
             {
                 //Move(runVel);
+                songs[0].pitch = 1.45f;
                 move = true;
                 moveModifier = runVel;
                 GetComponent<EnergyBar>().curEnergy -= 10 * Time.deltaTime;
@@ -434,9 +493,13 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 //Move(1);
+                songs[0].pitch = 1.25f;
                 move = true;
                 moveModifier = 1;
             }
+
+            if(songs[0].isPlaying == false)
+                songs[0].Play();
 
             anim.speed = moveModifier;
             anim.SetFloat("x", x);
@@ -447,10 +510,44 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             move = false;
+            songs[0].Stop();
         }
         //////////// ATTACK DETECTION WHILE COLLIDING //////////////////
         if (colGO != null)
         {
+            if (anim.GetBool("PickUp") == false && colGO.gameObject.tag == "Enemy" &&
+                isAttacking && soundControl)
+            {
+                for (int i = 0; i < colGOList.Count; i++)
+                {
+                    if (colGOList[i].GetComponent<EnemyHealth>().isDoll)
+                    {
+                        songs[1].Stop();
+                        songs[1].Play();
+                        soundControl = false;
+                    }
+                }
+            }
+
+            if (anim.GetBool("PickUp") == false && colGO.gameObject.tag == "Enemy" &&
+                isAttacking && controle && soundControl)
+            {
+                for (int i = 0; i < colGOList.Count; i++)
+                {
+                    if (closeAttackIndex == attackMaxIndex && colGOList[i].GetComponent<EnemyHealth>().curHealth > dmg["Close"]
+                        && colGOList[i].GetComponent<EnemyAI>() != null && colGOList[i].GetComponent<EnemyHealth>().isBoss == false)
+                    {
+                        songs[3].Play();
+                    }
+
+                    else if (closeAttackIndex != attackMaxIndex && colGOList[i].GetComponent<EnemyAI>() != null || closeAttackIndex == attackMaxIndex && colGOList[i].GetComponent<EnemyAI>() != null)
+                    {
+                        songs[2].Play();
+                    }
+                }
+                soundControl = false;
+            }
+
             if (anim.GetBool("PickUp") == false && colGO.gameObject.tag == "Enemy" &&
                 isAttacking && controle && attackTimer >= (closeAttack.length / 5) * 4)
             {
@@ -460,9 +557,17 @@ public class PlayerMovement : MonoBehaviour
 
                     if (closeAttackIndex == attackMaxIndex && colGOList[i].GetComponent<EnemyHealth>().curHealth > dmg["Close"]
                         && colGOList[i].GetComponent<EnemyAI>() != null && colGOList[i].GetComponent<EnemyHealth>().isBoss == false)
+                    {
                         colGOList[i].GetComponent<EnemyAI>().Knockback(rayV.x, rayV.y);
-                }
+                        //songs[3].Play();
+                    }
 
+                    else if(closeAttackIndex != attackMaxIndex && colGOList[i].GetComponent<EnemyAI>() != null || closeAttackIndex == attackMaxIndex && colGOList[i].GetComponent<EnemyAI>() != null)
+                    {
+                        //songs[2].Play();
+                    }
+                }
+                soundControl = true;
                 controle = false;
                 colGO = null;
             }
@@ -656,6 +761,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Itens" || collision.gameObject.tag == "FirstItens" || collision.gameObject.tag == "AddArrow" || collision.gameObject.tag == "AddLife")
         {
+            if (!pickingUp && !allButton.activeSelf)
+            {
+                allButton.GetComponent<Image>().sprite = buttonSprites[6];
+                allButton.SetActive(true);
+                waitingButton = buttons[6];
+                waitingB = true;
+                waitingTimer = 10;
+            }
+
             item = collision.gameObject;
         }
     }
@@ -672,6 +786,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Itens" || collision.gameObject.tag == "FirstItens" || collision.gameObject.tag == "AddArrow" || collision.gameObject.tag == "AddLife")
         {
+            if (allButton.GetComponent<Image>().sprite == buttonSprites[6])
+            {
+                waitingB2 = true;
+                waitingTimer = 0;
+            }
             item = null;
         }
     }
@@ -718,6 +837,35 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void IntructionButton(int b)
+    {
+        waitingB2 = false;
+
+        if(b == 0)
+        {
+            moveButton[0].GetComponent<Image>().sprite = buttonSprites[0];
+            moveButton[1].GetComponent<Image>().sprite = buttonSprites[1];
+            moveButton[2].GetComponent<Image>().sprite = buttonSprites[2];
+            moveButton[3].GetComponent<Image>().sprite = buttonSprites[3];
+
+            moveButton[0].SetActive(true);
+            moveButton[1].SetActive(true);
+            moveButton[2].SetActive(true);
+            moveButton[3].SetActive(true);
+
+            waitingButton = buttons[3];
+            waitingB = true;
+        }
+        
+        else
+        {
+            allButton.GetComponent<Image>().sprite = buttonSprites[b];
+            allButton.SetActive(true);
+            waitingButton = buttons[b];
+            waitingB = true;
+        }
+    }
+
     private void Move(float speed)
     {
         if (speed <= 1)
@@ -743,6 +891,9 @@ public class PlayerMovement : MonoBehaviour
             if (attackName == "isAttacking")
             {
                 hit.GetComponent<Collider2D>().enabled = true;
+
+                if (hit.GetComponent<HitCollider>().colliding == false)
+                    songs[5].Play();
 
                 if (Mathf.Abs(rayV.y) > Mathf.Abs(rayV.x))
                     attackMaxIndex = 1;
@@ -781,12 +932,21 @@ public class PlayerMovement : MonoBehaviour
 
             GameObject arrow = (GameObject)Instantiate(arrowPrefab, playerMiddle.transform.position, aim.transform.rotation);
 
+            /////////////////// Remover esta gambiarra futuramente /////////////////////////////////
+            if (FindObjectOfType<TutorialManager>().startBossFight)
+                arrow.GetComponent<ReOrderLayer>().isBoss = true;
+
+            else
+                arrow.GetComponent<ReOrderLayer>().isBoss = false;
+            ////////////////////////////////////////////////////////////////////////////////////////
+
             if (above)
                 arrow.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder - 1;
 
             else
                 arrow.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
 
+            songs[4].Play();
             arrow.GetComponent<Arrow>().arrowVel = arrowVel;
             arrow.GetComponent<Arrow>().dmg = dmg["Range"];
             ammo -= 1;
@@ -851,26 +1011,33 @@ public class PlayerMovement : MonoBehaviour
         if (item != null && item.tag != "FirstItens" && item.tag != "AddArrow" && item.tag != "AddLife")
         {
             item.GetComponent<ItemPickUP>().PickUP();
+            songs[6].Play();
         }
 
         else if (item != null && item.tag == "FirstItens")
         {
             item.GetComponent<ActiveBool>().Change();
+            songs[6].Play();
         }
         else if (item != null && item.tag == "AddArrow")
         {
             item.GetComponent<AddArrow>().Change();
+            songs[6].Play();
         }
 
         else if (item != null && item.tag == "AddLife")
         {
             if (GetComponent<PlayerHealth>().curHealth != GetComponent<PlayerHealth>().maxHealth)
+            {
                 item.GetComponent<AddLife>().Change();
+                songs[6].Play();
+            }
 
             else
             {
                 warnings.GetComponent<TextMeshProUGUI>().text = "Vida Cheia";
                 warnings.SetActive(true);
+                songs[7].Play();
             }
 
         }

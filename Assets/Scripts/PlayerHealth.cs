@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float calcHealth;
     private float hurtTimer;
+    private float explosionTimer;
     // Use this for initialization
     void Start()
     {
@@ -38,8 +39,18 @@ public class PlayerHealth : MonoBehaviour
         if (curHealth > maxHealth)
             curHealth = maxHealth;
 
+        if (explosionTimer > 0.95f && explosionTimer < 1.2f)
+        {
+            GetComponent<PlayerMovement>().songs[9].Play();
+            explosionTimer = 2;
+        }
+
+
         if (curHealth == 0)
         {
+            if(explosionTimer < 1.2f)
+                explosionTimer += Time.deltaTime;
+
             GetComponent<Animator>().SetBool("Died", true);
             healthBarCanvas.SetActive(false);
         }

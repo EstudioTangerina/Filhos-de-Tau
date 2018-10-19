@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReOrderLayer : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     public float offset;
-    public bool isPlayer;
+    public bool isPlayer, isBoss;
     private GameObject player;
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,7 @@ public class ReOrderLayer : MonoBehaviour {
 	void Update () {
         spriteRenderer.sortingOrder = Mathf.FloorToInt((transform.position.y - offset) * -1);
 
-        if(!isPlayer)
+        if(!isPlayer && !isBoss)
         {
             if (player.transform.position.y > transform.position.y)
                 spriteRenderer.sortingLayerName = "Objects+";

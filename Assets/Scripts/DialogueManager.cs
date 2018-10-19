@@ -26,6 +26,8 @@ public class DialogueManager : MonoBehaviour {
     public bool speak, smile;
     private TutorialManager tutorial;
     bool firstDialogue;
+    public bool lastDialogue;
+    public AudioSource speakSound;
 	// Use this for initialization
 	void Start () {
         tutorial = GetComponent<TutorialManager>();
@@ -43,6 +45,9 @@ public class DialogueManager : MonoBehaviour {
                 go.GetComponent<Animator>().SetBool("Speak", speak);
             }
         }
+
+        if (textBox.activeSelf == false)
+            speakSound.Stop();
 
         if (finishWrite)
         {
@@ -73,6 +78,7 @@ public class DialogueManager : MonoBehaviour {
         GameObject.FindObjectOfType<GuideAi>().startMove = false;
         sentences.Clear();
         speak = true;
+        speakSound.Play();
         foreach(string sentence in dialogue.senteces)
         {
             sentences.Enqueue(sentence);
@@ -84,7 +90,7 @@ public class DialogueManager : MonoBehaviour {
     public void DisplayNextSentence()
     {
         speak = true;
-
+        speakSound.Play();
         if (index == 0 || index == 2)
             nameText.text = "???";
 
@@ -129,22 +135,25 @@ public class DialogueManager : MonoBehaviour {
             dialogueText.text += letter;
 
             if (dialogueText.text == sentence)
+            {
                 speak = false;
-
+                speakSound.Stop();
+            }
             yield return null;
         }
     }
 
     void EndDialogue()
     {
-        if (!bossDialogue)
+        if (!bossDialogue && !lastDialogue)
         {
             if(firstDialogue)
             {
                 StartTutorialDialogue(tutorial.tutorialDialogues[13]);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().IntructionButton(0);
                 firstDialogue = false;
             }
-
+            speakSound.Stop();
             GetComponent<TutorialManager>().canWalk = true;
             //tutorial.canWalk = tutorial.lastCanWalk;
             tutorial.canRun = tutorial.lastCanRun;
@@ -157,11 +166,18 @@ public class DialogueManager : MonoBehaviour {
             playerHud.SetActive(true);
         }
 
-        else
+        else if(bossDialogue)
         {
             bossDialogueFinished = true;
             bossDialogue = false;
         }
+
+        else if(lastDialogue)
+        {
+            textBox.SetActive(false);
+            tutorial.FinishTutorial();
+        }
+
         textBox.SetActive(false);
         GameObject.FindObjectOfType<GuideAi>().startMove = true;
     }

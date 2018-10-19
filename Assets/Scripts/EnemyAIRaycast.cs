@@ -65,6 +65,11 @@ public class EnemyAIRaycast : MonoBehaviour
         {
             if (coroutineStarted == false)
             {
+                if (ai.canScream)
+                {
+                    ai.songs[1].Play();
+                    ai.canScream = false;
+                }
                 StartCoroutine("CheckBestPath");
                 coroutineStarted = true;
             }

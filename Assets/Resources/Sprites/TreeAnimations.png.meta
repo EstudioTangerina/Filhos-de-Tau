@@ -1,0 +1,788 @@
+fileFormatVersion: 2
+guid: 7d3eadd38a171914d8194e10e16c8887
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: "\xC1rvore  animada clone (1)_0"
+    21300002: "\xC1rvore  animada clone (1)_1"
+    21300004: "\xC1rvore  animada clone (1)_2"
+    21300006: "\xC1rvore  animada clone (1)_3"
+    21300008: "\xC1rvore  animada clone (1)_4"
+    21300010: "\xC1rvore  animada clone (1)_5"
+    21300012: "\xC1rvore  animada clone (1)_6"
+    21300014: "\xC1rvore  animada clone (1)_7"
+    21300016: "\xC1rvore  animada clone (1)_8"
+    21300018: "\xC1rvore  animada clone (1)_9"
+    21300020: "\xC1rvore  animada clone (1)_10"
+    21300022: "\xC1rvore  animada clone (1)_11"
+    21300024: "\xC1rvore  animada clone (1)_12"
+    21300026: "\xC1rvore  animada clone (1)_13"
+    21300028: "\xC1rvore  animada clone (1)_14"
+    21300030: "\xC1rvore  animada clone (1)_15"
+    21300032: "\xC1rvore  animada clone (1)_16"
+    21300034: "\xC1rvore  animada clone (1)_17"
+    21300036: "\xC1rvore  animada clone (1)_18"
+    21300038: "\xC1rvore  animada clone (1)_19"
+    21300040: "\xC1rvore  animada clone (1)_20"
+    21300042: "\xC1rvore  animada clone (1)_21"
+    21300044: "\xC1rvore  animada clone (1)_22"
+    21300046: "\xC1rvore  animada clone (1)_23"
+    21300048: "\xC1rvore  animada clone (1)_24"
+    21300050: "\xC1rvore  animada clone (1)_25"
+    21300052: "\xC1rvore  animada clone (1)_26"
+    21300054: "\xC1rvore  animada clone (1)_27"
+    21300056: "\xC1rvore  animada clone (1)_28"
+    21300058: "\xC1rvore  animada clone (1)_29"
+    21300060: "\xC1rvore  animada clone (1)_30"
+    21300062: "\xC1rvore  animada clone (1)_31"
+    21300064: "\xC1rvore  animada clone (1)_32"
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_0"
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 704
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.63570464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c66e372bf0fc9a4c87f909df9109062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_1"
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 704
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f05b91014b8c8449bd09c32d635f827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_2"
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 704
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84cbdbfa9d3a65b41b7f48991bfef030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_3"
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 704
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9a3e7a1ce6c34409611df82f48c51f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_4"
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 704
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a3d85dfd8ac784c92839d55bfd7bd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_5"
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 704
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7cf42310498da4b9b83eb2ceeaeeb0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_6"
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 564
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76eb9bfd8ba9f149ae3b22b5fa63972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_7"
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 564
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47762ee239c99b9469f34b9bc30bcb8b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_8"
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 564
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.63570464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9659959d819b424a9a4f6d2b6dbd737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_9"
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 564
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ebdef682d6035e4ca32c0040e1ba8dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_10"
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 564
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eeae895ec7fd47479fa9bddde360198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_11"
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 564
+        width: 104
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a93f2b960885614cb186bdd07de3a72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_12"
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 424
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65da8605f3d745649b5a695992c3289c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_13"
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 424
+        width: 106
+        height: 103
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dfd951e3dedca646bf5bef1df805ad3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_14"
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 424
+        width: 104
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e5286e80154708409d77edc47fe36ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_15"
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 424
+        width: 104
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348cc5d75842ea44c8ffe9b1c40bac9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_16"
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 425
+        width: 104
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe351bae6662734a97d1aa46047d8f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_17"
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 424
+        width: 104
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b25f7a91258c84a8f7e1f6039a1198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_18"
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 284
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76effeebfafe08a4bb24493d15c033fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_19"
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 284
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e9fb30512e5f74d9fdf80ecd959db9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_20"
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 284
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb0fc8bfeef7a543a949b98baf4097a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_21"
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 284
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898be530ec5da694b8e66fe034e0180b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_22"
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 284
+        width: 106
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5430132, y: 0.6357046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6a141b5dbfd6724994bc65fe49bf69f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_23"
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 284
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e42556ea70805546a711940b49beef4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_24"
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 144
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d440a9a2601abe1458991dc22c07ca7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_25"
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 144
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb464f1a5ced6ca47966d55db8e9eec2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_26"
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 144
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7553877362f3f64bad61990c6f45608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_27"
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 144
+        width: 108
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a877d2f7ea9b0e4aa851f7ed8db6eb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_28"
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 144
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b11a429e139db4197f3a5a1dd155f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_29"
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 144
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd07da5494484840aa3282696b48093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_30"
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 4
+        width: 108
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730d727b672fa434d916e70ab4587b0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_31"
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 4
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24e66cf413992943a5cb1911346e27e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xC1rvore  animada clone (1)_32"
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 4
+        width: 106
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8404fc60adb3b4f95df2ff053f7bb9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fb86987cd61ddd04e97b15cd21e37ae2
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

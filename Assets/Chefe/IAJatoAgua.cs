@@ -13,9 +13,12 @@ public class IAJatoAgua : MonoBehaviour
     Vector3 batata;
 
     int timer;
+
+    public float vel = 1;
     // Use this for initialization
     void Start()
     {
+		vel = 1.3f;
         player = GameObject.FindGameObjectWithTag("Player");
         /*
         Vector3 targ = player.transform.position;
@@ -40,7 +43,7 @@ public class IAJatoAgua : MonoBehaviour
     {
         Vector3 dir = batata;
 
-        transform.Translate(dir * -1f * Time.deltaTime);
+        transform.Translate(dir * -vel * Time.deltaTime);
 
         timer++;
 
@@ -53,8 +56,10 @@ public class IAJatoAgua : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player.GetComponent<PlayerHealth>().TakeDamage(15);
-            
+            Vector2 pos = new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y);
+            player.GetComponent<PlayerHealth>().TakeDamage(40);
+            player.GetComponent<PlayerHealth>().Hurt(pos.x, pos.y);
+            Destroy(gameObject);
         }
     }
 }
