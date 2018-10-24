@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Area2 : MonoBehaviour {
     public RagDool[] ragdolls;
+    public GameObject[] ragdollsShadow;
     public string[] colors;
     public int index;
     public List<int> validChoices = new List<int>();
@@ -31,6 +32,7 @@ public class Area2 : MonoBehaviour {
         if(guide.stoppedArea == 2 && area2.reached)
         {
             tutorial.StartTutorialDialogue(2);
+            StartCoroutine("BlinkInOrder");
             tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 3;
             actived = true;
             area2.reached = false;
@@ -50,6 +52,7 @@ public class Area2 : MonoBehaviour {
                     }
                 }
             }
+
             if (index >= 0 && index != ragdolls.Length)
             {
                 if (!ragdolls[order[index]].controle)
@@ -57,11 +60,15 @@ public class Area2 : MonoBehaviour {
                     index = -1;
                     tutorial.tutorialDialogues[2].senteces[0] = " Essa não foi a ordem que eu disse, tenta isso ai de novo, a ordem é essa: " + colors[order[0]] + ", " + colors[order[1]] + ", " + colors[order[2]] + ", " + colors[order[3]] + ".";
                     tutorial.StartTutorialDialogue(2);
+                    StopAllCoroutines();
+
                     foreach (RagDool r in ragdolls)
                     {
                         r.controle = false;
                         r.attack = false;
                     }
+
+                    StartCoroutine("BlinkInOrder");
                 }
             }
 
@@ -92,5 +99,44 @@ public class Area2 : MonoBehaviour {
             guide.ChangeWaypoints(2);
             GetComponent<BoxCollider2D>().enabled = false;
         }
+    }
+
+    IEnumerator BlinkInOrder()
+    {
+        ragdollsShadow[order[0]].SetActive(true);
+        ragdollsShadow[order[1]].SetActive(false);
+        ragdollsShadow[order[2]].SetActive(false);
+        ragdollsShadow[order[3]].SetActive(false);
+
+        yield return new WaitForSeconds(1.3f);
+
+        ragdollsShadow[order[0]].SetActive(false);
+        ragdollsShadow[order[1]].SetActive(true);
+        ragdollsShadow[order[2]].SetActive(false);
+        ragdollsShadow[order[3]].SetActive(false);
+
+        yield return new WaitForSeconds(1.3f);
+
+        ragdollsShadow[order[0]].SetActive(false);
+        ragdollsShadow[order[1]].SetActive(false);
+        ragdollsShadow[order[2]].SetActive(true);
+        ragdollsShadow[order[3]].SetActive(false);
+
+
+        yield return new WaitForSeconds(1.3f);
+
+        ragdollsShadow[order[0]].SetActive(false);
+        ragdollsShadow[order[2]].SetActive(false);
+        ragdollsShadow[order[1]].SetActive(false);
+        ragdollsShadow[order[3]].SetActive(true);
+
+        yield return new WaitForSeconds(1.3f);
+
+        ragdollsShadow[order[0]].SetActive(false);
+        ragdollsShadow[order[1]].SetActive(false);
+        ragdollsShadow[order[2]].SetActive(false);
+        ragdollsShadow[order[3]].SetActive(false);
+
+        yield return new WaitForSeconds(2.5f);
     }
 }
