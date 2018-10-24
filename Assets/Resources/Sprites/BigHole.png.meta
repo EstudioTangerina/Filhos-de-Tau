@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 05d4fe90c430b8b4488350b6c1e4be56
+guid: 7fd35f10d5837394c8f52725aa027c4b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BigHole_0
-    21300002: BigHole_1
-    21300004: BigHole_2
-    21300006: BigHole_3
+    21300000: tile (1)_0
+    21300002: tile (1)_1
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -47,7 +45,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 730
+  spritePixelsToUnits: 350
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -86,73 +84,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigHole_0
+      name: tile (1)_0
       rect:
         serializedVersion: 2
-        x: 200
-        y: 1730
-        width: 650
-        height: 210
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54f44befd4dbe284c9907e5f7c651503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BigHole_1
-      rect:
-        serializedVersion: 2
-        x: 1180
-        y: 40
-        width: 640
-        height: 1930
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1dead9d41eb00f4498a50789352639f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BigHole_2
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 10
-        width: 640
-        height: 1620
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0092f4fb96787e4d934c9aff074b3dd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BigHole_3
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 63
-        width: 640
-        height: 1042
+        x: 2305
+        y: 4725
+        width: 552
+        height: 2010
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,7 +98,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1408c99de4f21b4888937dce9b9ce5f
+      spriteID: dc1a2ed2862c4364194bed0b882e64a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tile (1)_1
+      rect:
+        serializedVersion: 2
+        x: 2316
+        y: 2476
+        width: 555
+        height: 2010
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5dfc4003d9fb3d4ab59eae52711d68e
       vertices: []
       indices: 
       edges: []
@@ -168,7 +126,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b70b44c3fadf73042aa24101b150be57
+    spriteID: d1891add60650c548b5f932623f3597d
     vertices: []
     indices: 
     edges: []

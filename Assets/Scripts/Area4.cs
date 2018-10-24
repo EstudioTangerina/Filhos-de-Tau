@@ -39,17 +39,10 @@ public class Area4 : MonoBehaviour {
 
        if(logsRolled == 1 && !one)
         {
-            tutorial.StartTutorialDialogue(8);
-            tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1f;
-            one = true;
-        }
-
-        else if (logsRolled == 3 && !three)
-        {
             tutorial.StartTutorialDialogue(9);
             //tutorial.partCompleted[4] = true;
             tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1f;
-            three = true;
+            one = true;
         }
 
         if (tutorial.GetComponent<DialogueManager>().area4DialogueFinished)
@@ -57,6 +50,8 @@ public class Area4 : MonoBehaviour {
             guide.GetComponent<GuideAi>().ChangeWaypoints(5);
             guide.GetComponent<GuideAi>().vel *= 1.5f;
             guide.GetComponent<Animator>().speed = 1.3f;
+            tutorial.partCompleted[4] = true;
+            GetComponents<Collider2D>()[1].isTrigger = true;
             tutorial.GetComponent<DialogueManager>().area4DialogueFinished = false;
         }
 
@@ -64,22 +59,23 @@ public class Area4 : MonoBehaviour {
         {
             tutorial.StartTutorialDialogue(11);
             tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1.7f;
+
             startDialogue = true;
         }
 
-
+        /*
         if(startDialogue && !tutorial.partCompleted[4])
         {
             timer3 += Time.deltaTime;
 
-            if(timer3 > 5)
+            if(timer3 > 6.5f && tutorial.GetComponent<DialogueManager>().area4DialogueFinished)
             {
-                tutorial.partCompleted[4] = true;
+
                 timer3 = 0;
             }
-        }
+        }*/
 
-        if (three && !startWave)
+        if (one && !startWave)
             timer += Time.deltaTime;
 
         if (startWave && timer2 < 25)

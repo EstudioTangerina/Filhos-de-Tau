@@ -33,26 +33,27 @@ public class ArrowTarget : MonoBehaviour {
 
             if (collision.gameObject.transform.rotation.eulerAngles.z >= 0 && collision.gameObject.transform.rotation.eulerAngles.z < 45)
             {
-                target.GetComponent<SpriteRenderer>().sprite = wasHitL;
-                target.GetComponent<Animator>().enabled = true;
-                shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
+                Hit();
             }
 
             else if (collision.gameObject.transform.rotation.eulerAngles.z > 135 && collision.gameObject.transform.rotation.eulerAngles.z <= 179)
             {
-                target.GetComponent<SpriteRenderer>().sprite = wasHitR;
-                target.GetComponent<Animator>().enabled = true;
-                shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
+                Hit();
             }
 
             else
             {
-                target.GetComponent<SpriteRenderer>().sprite = wasHit;
-                target.GetComponent<Animator>().enabled = true;
-                shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
+                Hit();
             }
             Destroy(collision.gameObject);
         }
+    }
+
+    public void Hit()
+    {
+        target.GetComponent<SpriteRenderer>().sprite = wasHit;
+        target.GetComponent<Animator>().enabled = true;
+        shaddow.GetComponent<SpriteRenderer>().sprite = shaddowHit;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

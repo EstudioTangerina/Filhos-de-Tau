@@ -36,6 +36,9 @@ public class Area3 : MonoBehaviour {
 		if(targets[0].hit && targets[1].hit && targets[2].hit && targets[3].hit && targets[4].hit && !tutorial.partCompleted[3])
         {
             guide.ChangeWaypoints(0);
+            if(FindObjectOfType<GameManager>() != null)
+                FindObjectOfType<GameManager>().areaReached = 3;
+
             tutorial.partCompleted[3] = true;
             tutorial.StartTutorialDialogue(6);
             tutorial.gameObject.GetComponent<DialogueManager>().waitTime = 1.5f;

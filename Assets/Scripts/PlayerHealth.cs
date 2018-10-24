@@ -77,5 +77,11 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<Animator>().SetBool("Hurt", true);
         GetComponent<Animator>().SetFloat("x", x);
         GetComponent<Animator>().SetFloat("y", y);
+
+        if (GetComponent<PlayerMovement>().walkToObjective)
+        {
+            GetComponent<PlayerMovement>().isWalking = false;
+            GetComponent<PlayerMovement>().walkToObjective = false;
+        }
     }
 }

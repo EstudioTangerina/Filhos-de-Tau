@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public MenuManager menu;
 
     public bool haveSave;
+    public int areaReached;
     // Use this for initialization0
     void Start()
     {
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         {
             player = null;
         }
-
+        /*
         if (System.IO.File.Exists(Path.Combine(Application.persistentDataPath, "savegame.dat")))
         {
             LoadState();
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
         }
 
         else
-            haveSave = false;
+            haveSave = false;*/
     }
     // Update is called once per frame
     void Update()

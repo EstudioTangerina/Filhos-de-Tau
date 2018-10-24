@@ -37,7 +37,7 @@ public class AddArrow : MonoBehaviour {
     public void Change()
     {
         player.ammo += amount;
-        if (isTutorial)
+        if (isTutorial && FindObjectOfType<Area3>() != null)
             GameObject.FindObjectOfType<Area3>().control = false;
         Destroy(gameObject);
     }

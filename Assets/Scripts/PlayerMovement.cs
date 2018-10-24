@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public bool canPursuit;
     public bool onStart;
+    public bool onStart2;
     public int ammo;
     public int maxAmmo = 10;
     public GameObject colGO;
@@ -109,9 +110,9 @@ public class PlayerMovement : MonoBehaviour
     private float moveModifier = 1;
     private Vector2 velPos;
     private Transform objective;
-    private bool walkToObjective;
+    public bool walkToObjective;
 
-    private float startTimer;
+    public float startTimer;
     #endregion
 
     public int closeAttackIndex;
@@ -147,8 +148,7 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
-		scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        scale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
         canReceiveKnockback = true;
         closeAttackIndex = -1;
         objectiveDist = 10;
@@ -278,6 +278,22 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if(onStart2)
+        {
+            startTimer += Time.deltaTime;
+
+            if (startTimer > 1.5 && startTimer < 1.8f)
+                anim.SetBool("WokeUp", true);
+
+            if (startTimer > 4f)
+            {
+                FindObjectOfType<TutorialManager>().canWalk = true;
+                FindObjectOfType<TutorialManager>().canRun = true;
+                FindObjectOfType<TutorialManager>().canAttack = true;
+                onStart2 = false;
+            }
+        }
+
         if(waitingB)
         {
             if(waitingTimer > 0 && waitingTimer < 10)
@@ -399,7 +415,7 @@ public class PlayerMovement : MonoBehaviour
 
             //Read Attack Input
             if (Input.GetKeyDown(attackButton) && !isMagicActive && !isAiming && !roll &&
-                !die && !isAttacking && anim.GetBool("PickUp") == false && inventory.activeSelf == false && canAttack)
+                !die && !isAttacking && anim.GetBool("PickUp") == false && inventory.activeSelf == false && canAttack && !onStart2)
             {
                 anim.speed = 1;
                 controle = true;

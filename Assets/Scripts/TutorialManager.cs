@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 
 public class TutorialManager : MonoBehaviour {
     private GameObject player;
+    public GameObject negroDagua;
     private InventoryUI inventoryUI;
     public AudioMixer audioMixer;
     public AudioMixer musicMixer;
@@ -78,6 +79,17 @@ public class TutorialManager : MonoBehaviour {
 
     public GameObject[] rocks;
     public GameObject[] rocksShadows;
+
+    public GameObject[] arrowAndBow;
+    public ArrowTarget[] targets;
+    public GameObject[] areas;
+
+    public Vector3[] playerPos;
+    public Vector3[] guidePos;
+
+    public GameObject[] huds;
+
+    public bool run1Time;
     // Use this for initialization
     void Start()
     {
@@ -103,17 +115,27 @@ public class TutorialManager : MonoBehaviour {
         else
             volumeMusic.value = volumeMusic.maxValue;
 
-        player.GetComponent<PlayerMovement>().canWalk = canWalk;
-        player.GetComponent<PlayerMovement>().canRun = canRun;
-        player.GetComponent<PlayerMovement>().canAttack = canAttack;
-        player.GetComponent<PlayerMovement>().canRoll = canRoll;
-        player.GetComponent<PlayerMovement>().canUseMagic = canUseMagic;
-        player.GetComponent<PlayerMovement>().canPursuit = canPursuit;
-        player.GetComponent<ItemHUD>().canChangeWeapon = canChangeWeapon;
+        if (GameObject.Find("MenuManager") != null)
+        {
+            manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
+            levelPart = manager.areaReached;
+        }
+        
+        else
+        {
+            player.GetComponent<PlayerMovement>().canWalk = canWalk;
+            player.GetComponent<PlayerMovement>().canRun = canRun;
+            player.GetComponent<PlayerMovement>().canAttack = canAttack;
+            player.GetComponent<PlayerMovement>().canRoll = canRoll;
+            player.GetComponent<PlayerMovement>().canUseMagic = canUseMagic;
+            player.GetComponent<PlayerMovement>().canPursuit = canPursuit;
+            player.GetComponent<ItemHUD>().canChangeWeapon = canChangeWeapon;
+        }
+
         inventoryUI.canOpenInv = canOpenInv;
         fade.SetActive(true);
         water.SetActive(false);
-
+        
         lastCanWalk = canWalk;
         lastCanRun = canRun;
         lastCanAttack = canAttack;
@@ -121,23 +143,94 @@ public class TutorialManager : MonoBehaviour {
         lastCanUseMagic = canUseMagic;
         lastCanPursuit = canUseMagic;
         lastCanChangeWeapon = canChangeWeapon;
-        lastCanOpenInv = canOpenInv;
-
+        lastCanOpenInv = canOpenInv;        
+    }
+    private void Update()
+    {
         if (GameObject.Find("MenuManager") != null)
         {
             manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
 
-            //tutorialDialogues[13].senteces[0] = "Venha andando até mim";
-           // tutorialDialogues[0].senteces[1] = "Se aproxime e pegue o machado.";
-           // tutorialDialogues[0].senteces[3] = "É só apertar o " + manager.buttons[5].ToString() + " para atacar.";
-           // tutorialDialogues[7].senteces[1] = "Quero que você use sua coragem para atravessar eles com seu Dash.";
+            if (run1Time == false)
+            {
+                levelPart = manager.areaReached;
 
+                if (manager.areaReached == 3)
+                {/*
+                canWalk = true;
+                canRun = true;
+                canAttack = true;*/
+                    canRoll = false;
+                    canUseMagic = false;
+                    canPursuit = true;
+                    canChangeWeapon = true;
+                    canOpenInv = false;
+                    player.GetComponent<PlayerMovement>().onStart = false;
+                    player.GetComponent<PlayerMovement>().onStart2 = true;
+                    hud.SetActive(true);
+                    arrowAndBow[0].GetComponent<AddArrow>().Change();
+                    arrowAndBow[1].GetComponent<ActiveBool>().Change();
+                    partCompleted[0] = partCompleted[1] = partCompleted[2] = partCompleted[3] = true;
+                    foreach (ArrowTarget a in targets)
+                        a.Hit();
+
+                    areas[0].SetActive(false);
+                    areas[1].SetActive(false);
+
+                    huds[0].SetActive(false);
+                    huds[1].SetActive(false);
+
+                    player.transform.position = playerPos[0];
+                    negroDagua.transform.position = guidePos[0];
+                    negroDagua.GetComponent<GuideAi>().stoppedArea = 4;
+                    Camera.main.gameObject.transform.position = new Vector3(playerPos[0].x, playerPos[0].y, -10f);
+                }
+
+                else if (manager.areaReached == 4)
+                {/*
+                canWalk = true;
+                canRun = true;
+                canAttack = true;*/
+                    canRoll = true;
+                    canUseMagic = false;
+                    canPursuit = true;
+                    canChangeWeapon = true;
+                    canOpenInv = false;
+                    player.GetComponent<PlayerMovement>().onStart = false;
+                    player.GetComponent<PlayerMovement>().onStart2 = true;
+                    hud.SetActive(true);
+                    arrowAndBow[0].GetComponent<AddArrow>().Change();
+                    arrowAndBow[1].GetComponent<ActiveBool>().Change();
+                    partCompleted[0] = partCompleted[1] = partCompleted[2] = partCompleted[3] = partCompleted[4] = true;
+                    foreach (ArrowTarget a in targets)
+                        a.Hit();
+
+                    foreach (GameObject g in areas)
+                        g.SetActive(false);
+
+                    huds[0].SetActive(false);
+                    huds[1].SetActive(false);
+
+                    player.transform.position = playerPos[1];
+                    negroDagua.transform.position = guidePos[1];
+                    negroDagua.GetComponent<GuideAi>().stoppedArea = 5;
+                    Camera.main.gameObject.transform.position = new Vector3(playerPos[1].x, playerPos[1].y, -10f);
+                }
+
+                else
+                {
+                    player.GetComponent<PlayerMovement>().canWalk = canWalk;
+                    player.GetComponent<PlayerMovement>().canRun = canRun;
+                    player.GetComponent<PlayerMovement>().canAttack = canAttack;
+                    player.GetComponent<PlayerMovement>().canRoll = canRoll;
+                    player.GetComponent<PlayerMovement>().canUseMagic = canUseMagic;
+                    player.GetComponent<PlayerMovement>().canPursuit = canPursuit;
+                    player.GetComponent<ItemHUD>().canChangeWeapon = canChangeWeapon;
+                }
+
+                run1Time = true;
+            }
         }
-    }
-    private void Update()
-    {
-        if (manager == null && GameObject.Find("MenuManager") != null)
-            manager = GameObject.Find("MenuManager").GetComponent<GameManager>();
 
         if (volume.value > -10)
             volumeState.sprite = volState[3];
@@ -171,12 +264,14 @@ public class TutorialManager : MonoBehaviour {
                 dManager.waitTime = 0.8f;
             }
 
-            FollowObjective(areaMiddle[levelPart - 1]);
+            if(levelPart - 1 != 3)
+                FollowObjective(areaMiddle[levelPart - 1]);
+
             levelPart -= 1;
             walkBack = true;
         }
 
-        if (walkBack)
+        if (walkBack && levelPart - 1 != 3)
         {
             range = Vector2.Distance(player.transform.position, areaMiddle[levelPart].position);
 
@@ -199,6 +294,7 @@ public class TutorialManager : MonoBehaviour {
         if (startBossFight)
         {
             float r = Vector2.Distance(player.transform.position, bossArenaMiddle.position);
+            manager.areaReached = 4;
 
             if (r < 13)
             {
@@ -283,6 +379,9 @@ public class TutorialManager : MonoBehaviour {
         player.GetComponent<PlayerMovement>().canPursuit = canPursuit;
         player.GetComponent<ItemHUD>().canChangeWeapon = canChangeWeapon;
         inventoryUI.canOpenInv = canOpenInv;
+        /*
+        if (manager != null && pausePanel.activeSelf == false)
+            manager.areaReached = levelPart;*/
     }
 
     public void StartBossFight()
@@ -377,7 +476,10 @@ public class TutorialManager : MonoBehaviour {
     public void MainMenu()
     {
         if (manager != null)
+        {
+            manager.areaReached = 0;
             manager.MainMenu();
+        }
     }
 
     public void SetVolume(float v)
