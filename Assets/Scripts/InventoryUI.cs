@@ -47,7 +47,7 @@ public class InventoryUI : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(invButton) && canOpenInv)
         {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
+            inventoryUI.SetActive(false);
         }
 
         if (Input.GetKeyDown(selectButton) && !hover || Input.GetKeyDown(rollButton) || Input.GetKeyDown(specialButton) && !hover)

@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
 
         if (menu == null && SceneManager.GetActiveScene().name == "Menu")
         {
+			areaReached = 0;
             menu = GameObject.FindObjectOfType<MenuManager>();
             menu.RefreshButtonNames();
         }
